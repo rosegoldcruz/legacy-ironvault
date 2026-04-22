@@ -7,6 +7,7 @@ export default function Navbar() {
   const isHome = pathname === '/'
   const isRoyalties = pathname === '/royalties'
   const isReferral = pathname === '/referral'
+  const isContact = pathname === '/contact'
 
   function linkStyle(active: boolean): React.CSSProperties {
     return {
@@ -30,7 +31,7 @@ export default function Navbar() {
       <ul style={{ display: 'flex', alignItems: 'center', gap: 2, listStyle: 'none', flexWrap: 'wrap' }}>
         <li><a href="/" style={linkStyle(isHome)}>Home</a></li>
         <li><a href="/royalties" style={linkStyle(isRoyalties)}>Royalties</a></li>
-        <li><a href="/#contact" style={linkStyle(false)}>Contact</a></li>
+        <li><a href="/contact" style={linkStyle(isContact)}>Contact</a></li>
         <li><a href="/referral" style={linkStyle(isReferral)}>Referral Program</a></li>
         <li className="nav-dropdown" style={{ position: 'relative' }}>
           <a href="#" style={linkStyle(false)}>VIP/Partner Pump ▾</a>
