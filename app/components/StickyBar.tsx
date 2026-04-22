@@ -21,7 +21,7 @@ export default function StickyBar() {
           { label: 'Home', href: '#home' },
           { label: 'Royalties', href: '#royalties' },
           { label: 'Contact', href: '#contact' },
-          { label: 'Referral Program', href: '#referral', active: true },
+          { label: 'Referral Program', href: '#referral' },
           { label: 'Privacy Policy/ Terms', href: '#privacy' },
           { label: 'Vip/Partner Pump', href: '#vip' },
         ].map((link) => (
