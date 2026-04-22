@@ -13,7 +13,8 @@ export default function StickyBar() {
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: 13, color: '#000' }}>
-        <span>⚡</span> Iron Vault Token 888-368-2502
+        <span>⚡</span> Iron Vault Token{' '}
+        <a href="tel:8883682502" style={{ color: '#000', textDecoration: 'none' }}>888-368-2502</a>
       </div>
       <nav style={{ display: 'flex', alignItems: 'center', gap: 4, flexWrap: 'wrap' }}>
         {[
