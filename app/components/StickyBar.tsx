@@ -17,7 +17,7 @@ export default function StickyBar() {
   return (
     <div style={{ position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 1000, background: '#F5C518', padding: '10px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8, borderTop: '2px solid #B8860B' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: 13, color: '#000' }}>
-        <Image src="/Iron Vault Token.png" alt="Iron Vault Token" width={24} height={24} style={{ borderRadius: '50%' }} />
+        <Image src="/ivt-logo.png" alt="Iron Vault Token" width={24} height={24} style={{ borderRadius: '50%' }} />
         Iron Vault Token{' '}
         <a href="tel:8883682502" style={{ color: '#000', textDecoration: 'none' }}>888-368-2502</a>
       </div>

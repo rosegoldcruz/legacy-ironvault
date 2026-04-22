@@ -20,7 +20,7 @@ export default function Navbar() {
   return (
     <nav style={{ background: '#F5C518', padding: '12px 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 999, borderBottom: '2px solid #B8860B' }}>
       <div style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: 16, color: '#000', display: 'flex', alignItems: 'center', gap: 10 }}>
-        <Image src="/Iron Vault Token.png" alt="Iron Vault Token" width={32} height={32} style={{ borderRadius: '50%' }} />
+        <Image src="/ivt-logo.png" alt="Iron Vault Token" width={32} height={32} style={{ borderRadius: '50%' }} />
         The Iron Vault Token
       </div>
       <ul style={{ display: 'flex', alignItems: 'center', gap: 4, listStyle: 'none' }}>
