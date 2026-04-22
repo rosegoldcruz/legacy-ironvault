@@ -20,8 +20,9 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <PaymentSection />
+      <CountdownSection />
 
-      {/* Asset 3 — video between payment and countdown */}
+      {/* Asset 3 — promo video */}
       <section style={{ background: '#000', padding: '40px 20px', textAlign: 'center' }}>
         <div style={{ maxWidth: 720, margin: '0 auto', borderRadius: 8, overflow: 'hidden' }}>
           <video controls playsInline width="100%">
@@ -29,8 +30,6 @@ export default function Home() {
           </video>
         </div>
       </section>
-
-      <CountdownSection />
       <PresaleSection />
       <RagsToRiches />
       <FundingSection />
