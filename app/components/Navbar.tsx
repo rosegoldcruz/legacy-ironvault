@@ -23,10 +23,10 @@ export default function Navbar() {
   return (
     <nav style={{ background: '#F5C518', padding: '10px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 999, borderBottom: '2px solid #B8860B', gap: 12, flexWrap: 'wrap' }}>
       {/* Brand */}
-      <div style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: 16, color: '#000', display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}>
-        <Image src="/ivt-logo.png" alt="Iron Vault Token" width={32} height={32} style={{ borderRadius: '50%' }} />
+      <a href="/" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: 16, color: '#000', display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0, textDecoration: 'none' }}>
+        <Image src="/ivt-logo.png" alt="Iron Vault Token" width={52} height={52} style={{ borderRadius: '50%' }} />
         The Iron Vault Token
-      </div>
+      </a>
 
       {/* Nav links */}
       <ul style={{ display: 'flex', alignItems: 'center', gap: 2, listStyle: 'none', flexWrap: 'wrap' }}>
