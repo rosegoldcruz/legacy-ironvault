@@ -19,13 +19,13 @@ export default function RoyaltiesForm() {
         {/* First Name */}
         <div style={{ marginBottom: 16 }}>
           <label style={{ display: 'block', fontFamily: 'Montserrat, sans-serif', fontSize: 12, fontWeight: 600, color: '#333', marginBottom: 6 }}>First Name</label>
-          <input type="text" placeholder="First Name" style={{ width: '100%', border: '1px solid #DDD', borderRadius: 4, padding: '12px 14px', fontSize: 14, color: '#333', outline: 'none', fontFamily: 'Open Sans, sans-serif' }} />
+          <input type="text" placeholder="First Name" style={{ width: '100%', border: '1px solid #DDD', borderRadius: 4, padding: '12px 14px', fontSize: 16, color: '#333', outline: 'none', fontFamily: 'Open Sans, sans-serif' }} />
         </div>
 
         {/* Last Name */}
         <div style={{ marginBottom: 16 }}>
           <label style={{ display: 'block', fontFamily: 'Montserrat, sans-serif', fontSize: 12, fontWeight: 600, color: '#333', marginBottom: 6 }}>Last Name</label>
-          <input type="text" placeholder="Last Name" style={{ width: '100%', border: '1px solid #DDD', borderRadius: 4, padding: '12px 14px', fontSize: 14, color: '#333', outline: 'none', fontFamily: 'Open Sans, sans-serif' }} />
+          <input type="text" placeholder="Last Name" style={{ width: '100%', border: '1px solid #DDD', borderRadius: 4, padding: '12px 14px', fontSize: 16, color: '#333', outline: 'none', fontFamily: 'Open Sans, sans-serif' }} />
         </div>
 
         {/* Phone */}
@@ -33,7 +33,7 @@ export default function RoyaltiesForm() {
           <label style={{ display: 'block', fontFamily: 'Montserrat, sans-serif', fontSize: 12, fontWeight: 600, color: '#333', marginBottom: 6 }}>
             Phone <span style={{ color: 'red' }}>*</span>
           </label>
-          <input type="tel" placeholder="Phone" style={{ width: '100%', border: '1px solid #DDD', borderRadius: 4, padding: '12px 14px', fontSize: 14, color: '#333', outline: 'none', fontFamily: 'Open Sans, sans-serif' }} />
+          <input type="tel" placeholder="Phone" style={{ width: '100%', border: '1px solid #DDD', borderRadius: 4, padding: '12px 14px', fontSize: 16, color: '#333', outline: 'none', fontFamily: 'Open Sans, sans-serif' }} />
         </div>
 
         {/* Email */}
@@ -43,7 +43,7 @@ export default function RoyaltiesForm() {
           </label>
           <div style={{ position: 'relative' }}>
             <span style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', fontSize: 14, color: '#AAA' }}>✉</span>
-            <input type="email" placeholder="Email" style={{ width: '100%', border: '1px solid #DDD', borderRadius: 4, padding: '12px 14px 12px 36px', fontSize: 14, color: '#333', outline: 'none', fontFamily: 'Open Sans, sans-serif' }} />
+            <input type="email" placeholder="Email" style={{ width: '100%', border: '1px solid #DDD', borderRadius: 4, padding: '12px 14px 12px 36px', fontSize: 16, color: '#333', outline: 'none', fontFamily: 'Open Sans, sans-serif' }} />
           </div>
         </div>
 

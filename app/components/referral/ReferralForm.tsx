@@ -5,7 +5,7 @@ export default function ReferralForm() {
     border: '1px solid #2A2A2A',
     borderRadius: 4,
     padding: '12px 14px',
-    fontSize: 14,
+    fontSize: 16,
     color: '#fff',
     outline: 'none',
     fontFamily: 'Open Sans, sans-serif',

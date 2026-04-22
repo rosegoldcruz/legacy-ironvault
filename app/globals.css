@@ -49,20 +49,64 @@ body {
 .sticky-spacer { height: 56px; }
 
 /* Three phase grid responsive */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .three-phases-grid {
     grid-template-columns: 1fr !important;
   }
 }
 
 /* Pump card grid responsive */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .pump-grid {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 480px) {
   .pump-grid {
     grid-template-columns: 1fr !important;
   }
+}
+
+/* ── Mobile nav ── */
+@media (max-width: 768px) {
+  .nav-links-desktop { display: none !important; }
+  .nav-call-btn { display: none !important; }
+  .nav-hamburger { display: flex !important; }
+  .nav-brand-text { display: none; }
+}
+
+/* ── No horizontal scroll ── */
+@media (max-width: 768px) {
+  body { overflow-x: hidden; }
+
+  /* Countdown numbers */
+  .countdown-number { font-size: 48px !important; }
+
+  /* Generic section padding */
+  section { padding-left: 16px !important; padding-right: 16px !important; }
+
+  /* Hero / big headings */
+  .hero-title { font-size: 32px !important; }
+  .section-title { font-size: 22px !important; }
+  .bebas-52 { font-size: 36px !important; }
+}
+
+/* ── Form inputs: 16px minimum (prevents iOS zoom) ── */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+textarea,
+select {
+  font-size: 16px !important;
+}
+
+/* ── Touch targets ── */
+@media (max-width: 768px) {
+  a, button { min-height: 44px; }
+}
+
+/* ── Image full width on mobile ── */
+@media (max-width: 768px) {
+  img { max-width: 100%; height: auto; }
 }

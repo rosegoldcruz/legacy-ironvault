@@ -11,7 +11,7 @@ export default function OptinPage() {
     border: '1px solid #DDD',
     borderRadius: 4,
     padding: '12px 14px',
-    fontSize: 14,
+    fontSize: 16,
     color: '#333',
     outline: 'none',
     fontFamily: 'Open Sans, sans-serif',
