@@ -1,5 +1,6 @@
 'use client'
 import { usePathname } from 'next/navigation'
+import Image from 'next/image'
 
 export default function Navbar() {
   const pathname = usePathname()
@@ -16,7 +17,7 @@ export default function Navbar() {
       }}
     >
       <div style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: 16, color: '#000', display: 'flex', alignItems: 'center', gap: 10 }}>
-        <div style={{ width: 32, height: 32, background: '#000', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14 }}>⚡</div>
+        <Image src="/Iron Vault Token.png" alt="Iron Vault Token" width={32} height={32} style={{ borderRadius: '50%' }} />
         The Iron Vault Token
       </div>
       <ul style={{ display: 'flex', alignItems: 'center', gap: 4, listStyle: 'none' }}>
