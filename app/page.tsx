@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar'
+import VideoPlayer from './components/VideoPlayer'
 import HeroSection from './components/HeroSection'
 import PaymentSection from './components/PaymentSection'
 import CountdownSection from './components/CountdownSection'
@@ -23,9 +24,7 @@ export default function Home() {
       {/* Asset 3 — promo video */}
       <section style={{ background: '#000', padding: '40px 20px', textAlign: 'center' }}>
         <div style={{ maxWidth: 720, margin: '0 auto', borderRadius: 8, overflow: 'hidden' }}>
-          <video controls playsInline width="100%">
-            <source src="/3.mp4" type="video/mp4" />
-          </video>
+          <VideoPlayer src="/3.mp4" />
         </div>
       </section>
       <RagsToRiches />
