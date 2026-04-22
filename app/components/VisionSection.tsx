@@ -24,7 +24,7 @@ export default function VisionSection() {
             ))}
           </ul>
           <a
-            href="#"
+            href="/optin"
             style={{
               display: 'block', background: '#000', color: '#fff',
               fontFamily: 'Montserrat, sans-serif', fontWeight: 700,

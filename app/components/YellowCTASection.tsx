@@ -6,7 +6,7 @@ export default function YellowCTASection() {
           <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 22, fontWeight: 900, color: '#000', marginBottom: 16, lineHeight: 1.2 }}>
             Getting your pre sale tokens is simple
           </div>
-          <a href="#" style={{ display: 'block', background: '#000', color: '#fff', fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 14, padding: 20, borderRadius: 4, textAlign: 'center', lineHeight: 1.4, textDecoration: 'none' }}>
+          <a href="/optin" style={{ display: 'block', background: '#000', color: '#fff', fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 14, padding: 20, borderRadius: 4, textAlign: 'center', lineHeight: 1.4, textDecoration: 'none' }}>
             Opt in to recieve info on getting your tokens today!
           </a>
         </div>

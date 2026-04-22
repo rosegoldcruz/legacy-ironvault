@@ -65,7 +65,7 @@ export default function RoyaltiesForm() {
 
         {/* Submit */}
         <button type="button" style={{ width: '100%', background: '#22C55E', border: 'none', borderRadius: 4, padding: 16, fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 15, color: '#fff', cursor: 'pointer', marginTop: 4, marginBottom: 12 }}>
-          Button
+          Submit
         </button>
 
         {/* Links */}
