@@ -8,6 +8,7 @@ export default function Navbar() {
   const isRoyalties = pathname === '/royalties'
   const isReferral = pathname === '/referral'
   const isContact = pathname === '/contact'
+  const isVip = pathname === '/vip'
 
   function linkStyle(active: boolean): React.CSSProperties {
     return {
@@ -33,12 +34,7 @@ export default function Navbar() {
         <li><a href="/royalties" style={linkStyle(isRoyalties)}>Royalties</a></li>
         <li><a href="/contact" style={linkStyle(isContact)}>Contact</a></li>
         <li><a href="/referral" style={linkStyle(isReferral)}>Referral Program</a></li>
-        <li className="nav-dropdown" style={{ position: 'relative' }}>
-          <a href="#" style={linkStyle(false)}>VIP/Partner Pump ▾</a>
-          <div className="nav-dropdown-menu" style={{ position: 'absolute', top: '100%', right: 0, background: '#fff', border: '1px solid #ddd', borderRadius: 4, minWidth: 160, display: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.15)' }}>
-            <a href="#" style={{ display: 'block', padding: '10px 16px', fontSize: 13, color: '#000', textDecoration: 'none' }}>Privacy Policy/ Terms</a>
-          </div>
-        </li>
+        <li><a href="/vip" style={linkStyle(isVip)}>VIP/Partner Pump</a></li>
       </ul>
 
       {/* Call Now */}

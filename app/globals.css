@@ -54,3 +54,15 @@ body {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* Pump card grid responsive */
+@media (max-width: 900px) {
+  .pump-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (max-width: 600px) {
+  .pump-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

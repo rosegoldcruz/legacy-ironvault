@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>VIP/Partner Pump | Iron Vault Token</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--gold:#D4AF37;--gold-dark:#B8860B;--orange:#FF6B00;--black:#000000;--yellow:#F5C518;--white:#FFFFFF;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Open Sans',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden;}
+
+  .sticky-bar{position:fixed;bottom:0;left:0;right:0;z-index:1000;background:var(--yellow);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;border-top:2px solid var(--gold-dark);}
+  .sticky-bar-brand{display:flex;align-items:center;gap:8px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;color:var(--black);}
+  .sticky-bar-brand::before{content:'⚡';font-size:16px;}
+  .sticky-bar-nav{display:flex;align-items:center;gap:4px;flex-wrap:wrap;}
+  .sticky-bar-nav a{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;color:var(--black);text-decoration:none;padding:4px 8px;}
+  .sticky-bar-nav a.active{background:var(--black);color:var(--yellow);border-radius:3px;padding:4px 10px;}
+
+  nav.main-nav{background:var(--yellow);padding:12px 40px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:999;border-bottom:2px solid var(--gold-dark);}
+  .nav-brand{font-family:'Montserrat',sans-serif;font-weight:800;font-size:16px;color:var(--black);display:flex;align-items:center;gap:10px;}
+  .nav-brand-icon{width:32px;height:32px;background:var(--black);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;}
+  .nav-links{display:flex;align-items:center;gap:4px;list-style:none;}
+  .nav-links a{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;color:var(--black);text-decoration:none;padding:6px 14px;transition:all 0.2s;border-radius:3px;}
+  .nav-links a:hover{background:rgba(0,0,0,0.1);}
+  .nav-links a.active{background:var(--black);color:var(--yellow);}
+  .nav-dropdown{position:relative;}
+  .nav-dropdown-menu{position:absolute;top:100%;right:0;background:var(--white);border:1px solid #ddd;border-radius:4px;min-width:160px;display:none;box-shadow:0 4px 12px rgba(0,0,0,0.15);}
+  .nav-dropdown:hover .nav-dropdown-menu{display:block;}
+  .nav-dropdown-menu a{display:block;padding:10px 16px;font-size:13px;color:var(--black);text-decoration:none;}
+  .nav-dropdown-menu a:hover{background:#f5f5f5;}
+
+  /* PLACEHOLDERS */
+  .placeholder-img{width:100%;background:#1A1A1A;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 20px;text-align:center;border:1px solid #2A2A2A;border-radius:8px;min-height:280px;}
+  .placeholder-img .ph-icon{font-size:48px;margin-bottom:12px;}
+  .placeholder-img .ph-label{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:2px;color:#555;text-transform:uppercase;}
+  .placeholder-img .ph-sub{font-size:11px;color:#444;margin-top:6px;max-width:400px;}
+
+  .center-img-wrap{max-width:760px;margin:0 auto;padding:0 20px;}
+  .section-gold-title{font-family:'Montserrat',sans-serif;font-size:32px;font-weight:900;color:var(--gold);text-align:center;padding:40px 20px 24px;line-height:1.2;}
+  .section-orange-title{font-family:'Montserrat',sans-serif;font-size:30px;font-weight:900;color:var(--orange);text-align:center;padding:40px 20px 8px;line-height:1.2;}
+  .body-text{max-width:800px;margin:0 auto;padding:0 20px 32px;font-size:14px;color:#CCC;line-height:1.8;text-align:center;}
+  .body-text strong{color:var(--white);}
+  .body-text .gold{color:var(--gold);}
+
+  /* ── PUMP.FUN CARD GRID ── */
+  .pump-section{background:var(--black);padding:16px 20px 48px;}
+  .pump-subtitle{
+    font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;
+    color:var(--gold);text-align:center;margin-bottom:36px;
+    text-decoration:underline;font-style:italic;
+    max-width:700px;margin-left:auto;margin-right:auto;
+  }
+  .pump-grid{
+    max-width:1100px;margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  .pump-card{
+    background:#0D0D0D;
+    border:1px solid #1E1E1E;
+    border-radius:8px;
+    padding:24px;
+    position:relative;
+    overflow:hidden;
+    transition:border-color 0.2s;
+  }
+  .pump-card:hover{border-color:rgba(212,175,55,0.3);}
+  .pump-card::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  }
+  .pump-card-icon{font-size:32px;margin-bottom:12px;display:block;}
+  .pump-card-title{
+    font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;
+    color:var(--gold);margin-bottom:12px;line-height:1.3;
+    text-decoration:underline;
+  }
+  .pump-card-body{font-size:12px;color:#888;line-height:1.75;}
+  .pump-card-body strong{color:#CCC;}
+  .pump-card-body .result{
+    display:block;margin-top:10px;
+    font-size:12px;color:var(--gold);font-weight:600;
+    border-top:1px solid #1E1E1E;padding-top:10px;
+  }
+  .pump-card-body em{font-style:italic;color:#777;}
+
+  /* BOTTOM LINE */
+  .bottom-line-section{
+    background:#0D0D0D;border-top:1px solid #1E1E1E;border-bottom:1px solid #1E1E1E;
+    padding:40px 20px;margin:0 0 40px;text-align:center;
+  }
+  .bottom-line-title{
+    font-family:'Montserrat',sans-serif;font-size:18px;font-weight:900;
+    color:var(--white);text-decoration:underline;margin-bottom:16px;
+  }
+  .bottom-line-body{
+    max-width:760px;margin:0 auto;
+    font-size:15px;color:#CCC;line-height:1.8;
+  }
+  .bottom-line-body strong{color:var(--white);}
+  .bottom-line-body em{font-style:italic;}
+  .bottom-line-body .gold{color:var(--gold);font-weight:700;}
+
+  /* REALITY CARD */
+  .reality-card{
+    max-width:600px;margin:0 auto 40px;
+    background:#0D0D0D;border:1px solid rgba(255,107,0,0.3);
+    border-radius:8px;padding:28px;text-align:center;
+    position:relative;overflow:hidden;
+  }
+  .reality-card::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,transparent,var(--orange),transparent);
+  }
+  .reality-card-title{
+    font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;
+    color:var(--orange);margin-bottom:12px;text-decoration:underline;
+  }
+  .reality-card-body{font-size:13px;color:#888;line-height:1.75;}
+  .reality-card-body strong{color:#CCC;}
+
+  .sticky-spacer{height:56px;}
+
+  @media(max-width:900px){
+    .pump-grid{grid-template-columns:repeat(2,1fr);}
+    nav.main-nav{padding:12px 16px;}
+    .nav-links{display:none;}
+  }
+  @media(max-width:600px){
+    .pump-grid{grid-template-columns:1fr;}
+    .section-gold-title{font-size:24px;}
+    .section-orange-title{font-size:22px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- STICKY BOTTOM BAR -->
+<div class="sticky-bar">
+  <div class="sticky-bar-brand">The Iron Vault Token 888-368-2502</div>
+  <nav class="sticky-bar-nav">
+    <a href="index.html">Home</a>
+    <a href="royalties.html">Royalties</a>
+    <a href="contact.html">Contact</a>
+    <a href="referral.html">Referral Program</a>
+    <a href="#">Privacy Policy/ Terms</a>
+    <a href="vip.html" class="active">Vip/Partner Pump</a>
+  </nav>
+</div>
+
+<!-- MAIN NAV -->
+<nav class="main-nav">
+  <div class="nav-brand">
+    <div class="nav-brand-icon">⚡</div>
+    The Iron Vault Token
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="royalties.html">Royalties</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="referral.html">Referral Program</a></li>
+    <li class="nav-dropdown">
+      <a href="vip.html" class="active">VIP/Partner Pump ▾</a>
+      <div class="nav-dropdown-menu"><a href="#">Privacy Policy/ Terms</a></div>
+    </li>
+  </ul>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SECTION 1 — POWERFUL PARTNERSHIP HERO IMAGE           -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section style="background:var(--black);padding:40px 20px 32px;">
+  <div class="center-img-wrap">
+    <!-- REPLACE: C:\Users\Vulpi\legacy-vault\public\19.webp
+         POWERFUL PARTNERSHIP FOR MASSIVE INVESTMENT
+         Handshake + IVT coin — NEW TOKEN SET TO EXPLODE! BLOWING UP IN 60 DAYS! -->
+    <div class="placeholder-img">
+      <div class="ph-icon">🤝</div>
+      <div class="ph-label">19.webp — POWERFUL PARTNERSHIP HERO</div>
+      <div class="ph-sub">POWERFUL PARTNERSHIP FOR MASSIVE INVESTMENT — NEW TOKEN SET TO EXPLODE! BLOWING UP IN 60 DAYS!</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SECTION 2 — VIP VIDEO                                 -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section style="background:var(--black);padding:0 20px 32px;">
+  <div style="max-width:560px;margin:0 auto;">
+    <!-- REPLACE: C:\Users\Vulpi\legacy-vault\public\20.mp4
+         COME ONCE IN A LIFETIME VIP video -->
+    <!-- <video autoPlay muted loop playsInline width="100%" style="border-radius:8px;">
+           <source src="/20.mp4" type="video/mp4"/>
+         </video> -->
+    <div class="placeholder-img" style="min-height:200px;">
+      <div class="ph-icon">▶️</div>
+      <div class="ph-label">20.mp4 — VIP VIDEO</div>
+      <div class="ph-sub">COME ONCE IN A LIFETIME VIP — Iron Vault Token video</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SECTION 3 — POSITION YOURSELF TITLE + BODY            -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section style="background:var(--black);padding:0 20px 40px;">
+  <div class="section-gold-title" style="padding-top:0;">Position Yourself Before the Momentum Hits</div>
+  <div class="body-text">
+    <strong>Position Yourself Before the Momentum Hits</strong><br/><br/>
+    What you're looking at isn't just another token—it's a coordinated launch backed by strategy, capital, and execution. We're partnering with serious players to drive visibility, liquidity, and sustained market activity from day one. The goal isn't luck… it's momentum. The kind of momentum that can take a project from fractions of a cent into something the market can't ignore.<br/><br/>
+    Early-stage entries—like $0.000000008—are where positioning matters most. That's where asymmetric opportunity lives. As exposure increases, volume builds, and adoption grows, price discovery begins to accelerate. We're not relying on hype alone—we're combining strategic partnerships, aggressive marketing, and community expansion to create real demand behind the token.<br/><br/>
+    <strong class="gold">This is about getting in before the story is fully told.</strong><br/><br/>
+    Because once attention hits at scale...<br/>
+    those early positions are the ones that move the most.
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SECTION 4 — AMPLIFY WITH PUMP.FUN IMAGE               -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section style="background:var(--black);padding:0 20px 40px;">
+  <div class="center-img-wrap">
+    <!-- REPLACE: C:\Users\Vulpi\legacy-vault\public\21.webp
+         AMPLIFY YOUR TOKEN'S POTENTIAL WITH PUMP.FUN
+         IVT coin + rocket + pump.fun logo
+         Powerful Partnership For Explosive Growth
+         Rapid Liquidity & Market Movement / Viral Momentum & Hype / Fair Launch Advantage
+         LEVERAGE THE ULTIMATE SOLANA PLATFORM TO PROPEL YOUR TOKEN TO NEW HEIGHTS! -->
+    <div class="placeholder-img">
+      <div class="ph-icon">🚀</div>
+      <div class="ph-label">21.webp — AMPLIFY WITH PUMP.FUN</div>
+      <div class="ph-sub">AMPLIFY YOUR TOKEN'S POTENTIAL WITH PUMP.FUN — Rapid Liquidity / Viral Momentum / Fair Launch Advantage</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SECTION 5 — WHY TOKENS GO CRAZY — CARD GRID           -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section style="background:var(--black);padding:0 20px;">
+  <div class="section-orange-title" style="padding-top:0;">Why tokens can go "crazy" on platforms like Pump.fun</div>
+</section>
+
+<section class="pump-section">
+  <div class="pump-subtitle">Here's the real breakdown — this isn't magic, it's mechanics + psychology + speed.</div>
+
+  <div class="pump-grid">
+
+    <div class="pump-card">
+      <span class="pump-card-icon">⚡</span>
+      <div class="pump-card-title">Instant Liquidity = Instant Movement</div>
+      <div class="pump-card-body">
+        Tokens launch with built-in liquidity curves (bonding curves).<br/><br/>
+        • <strong>No waiting</strong> for buyers and sellers<br/>
+        • Price <strong>automatically increases</strong> with each buy<br/>
+        • Early buys move price <em>fast</em>
+        <span class="result">👉 Even small buying pressure creates huge percentage jumps early</span>
+      </div>
+    </div>
+
+    <div class="pump-card">
+      <span class="pump-card-icon">🎰</span>
+      <div class="pump-card-title">Ultra-Low Entry Creates "Lottery Psychology"</div>
+      <div class="pump-card-body">
+        When people see $0.000000008 their brain thinks:<br/>
+        <em>"If this hits $0.01… I'm rich."</em><br/><br/>
+        That creates:<br/>
+        • Massive FOMO<br/>
+        • Fast, emotional decision-making<br/>
+        • Viral sharing
+        <span class="result">👉 People pile in quickly, driving rapid spikes</span>
+      </div>
+    </div>
+
+    <div class="pump-card">
+      <span class="pump-card-icon">🌊</span>
+      <div class="pump-card-title">Speed of Solana Removes Friction</div>
+      <div class="pump-card-body">
+        Pump.fun runs on Solana:<br/><br/>
+        • Transactions happen in <strong>seconds</strong><br/>
+        • Fees are <strong>extremely low</strong><br/>
+        • Anyone can buy <strong>instantly</strong>
+        <span class="result">👉 On Solana, momentum compounds rapidly. Slower chains kill momentum.</span>
+      </div>
+    </div>
+
+    <div class="pump-card">
+      <span class="pump-card-icon">⚖️</span>
+      <div class="pump-card-title">Fair Launch Energy (No Presale Advantage)</div>
+      <div class="pump-card-body">
+        Most Pump.fun tokens have:<br/><br/>
+        • No private rounds<br/>
+        • No VC allocations<br/>
+        • No early insider pricing<br/>
+        • Everyone buys in real time
+        <span class="result">👉 People feel it's a "fair shot" — more trust, more participation early</span>
+      </div>
+    </div>
+
+    <div class="pump-card">
+      <span class="pump-card-icon">📣</span>
+      <div class="pump-card-title">Viral + Social Momentum</div>
+      <div class="pump-card-body">
+        Tokens spread through Telegram, X (Twitter), and Discord.<br/><br/>
+        Once a coin moves:<br/>
+        • Screenshots get shared<br/>
+        • People brag about gains<br/>
+        • Influencers jump in
+        <span class="result">👉 Momentum feeds itself: price ↑ → attention ↑ → price ↑</span>
+      </div>
+    </div>
+
+    <div class="pump-card">
+      <span class="pump-card-icon">💥</span>
+      <div class="pump-card-title">Low Market Cap = Explosive Multiples</div>
+      <div class="pump-card-body">
+        Early-stage tokens start tiny:<br/><br/>
+        • $10K → $100K = <strong>10x</strong><br/>
+        • $100K → $1M = <strong>another 10x</strong><br/><br/>
+        These jumps are <strong>much easier</strong> than moving a billion-dollar project.
+        <span class="result">👉 Early runs can look insane (100x+ moves happen)</span>
+      </div>
+    </div>
+
+    <div class="pump-card">
+      <span class="pump-card-icon">🎓</span>
+      <div class="pump-card-title">Graduation Effect (Liquidity Expansion)</div>
+      <div class="pump-card-body">
+        Once a token hits certain milestones it "graduates" to broader markets like Raydium:<br/><br/>
+        • More buyers<br/>
+        • More visibility<br/>
+        • Larger capital inflows
+        <span class="result">👉 Another wave of price acceleration kicks in</span>
+      </div>
+    </div>
+
+    <div class="pump-card">
+      <span class="pump-card-icon">🔥</span>
+      <div class="pump-card-title">Narrative + Branding Drives Everything</div>
+      <div class="pump-card-body">
+        Coins don't pump because of code.<br/>
+        They pump because of <strong>story + belief + attention</strong>.<br/><br/>
+        If your project has:<br/>
+        • A strong narrative<br/>
+        • Aggressive marketing<br/>
+        • Community engagement
+        <span class="result">👉 It can outperform technically "better" projects</span>
+      </div>
+    </div>
+
+    <div class="pump-card" style="border-color:rgba(255,107,0,0.3);">
+      <span class="pump-card-icon">⚠️</span>
+      <div class="pump-card-title" style="color:var(--orange);text-decoration-color:var(--orange);">The Reality (Important)</div>
+      <div class="pump-card-body">
+        This environment is powerful — but it's also volatile:<br/><br/>
+        • Prices can move up <strong>fast</strong><br/>
+        • They can also drop just as fast<br/>
+        • <strong>Momentum is everything</strong>
+        <span class="result" style="color:var(--orange);">Never invest more than you can afford to lose.</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SECTION 6 — BOTTOM LINE                               -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section class="bottom-line-section">
+  <div class="bottom-line-title">Bottom Line</div>
+  <div class="bottom-line-body">
+    Platforms like Pump.fun create the <em>perfect storm</em>:<br/>
+    <strong>Easy access + fast execution + emotional buying + viral momentum + low starting value</strong><br/><br/>
+    <span class="gold">That combination is exactly why you see coins go from nothing… to something everyone's suddenly talking about.</span>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SECTION 7 — COIN PUMPS IMAGE                          -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section style="background:var(--black);padding:0 20px 32px;">
+  <div class="center-img-wrap">
+    <!-- REPLACE: C:\Users\Vulpi\legacy-vault\public\22.webp
+         CHECK OUT WHAT SOME OTHERS ARE MAKING WITH COIN PUMPS RIGHT NOW!
+         IVT coin (gold vault wheel) + chart going up + stacks of coins -->
+    <div class="placeholder-img">
+      <div class="ph-icon">📈</div>
+      <div class="ph-label">22.webp — COIN PUMPS</div>
+      <div class="ph-sub">CHECK OUT WHAT SOME OTHERS ARE MAKING WITH COIN PUMPS RIGHT NOW!</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SECTION 8 — POWERED BY COMMUNITY IMAGE                -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section style="background:var(--black);padding:0 20px 40px;">
+  <div class="center-img-wrap">
+    <!-- REPLACE: C:\Users\Vulpi\legacy-vault\public\23.webp
+         POWERED BY COMMUNITY. ACCELERATED BY MOMENTUM.
+         IVT coin + rocket + pump.fun logo
+         TURN 1-3% OF SUPPLY ($10,000,000 – $30,000,000)
+         INTO $10,000,000–$30,000,000 AT $1.00 – $2.00
+         SEE HOW CRYPTO COMMUNITIES & PUMP.FUN CREATE QUICK TURNAROUNDS & OVERNIGHT COIN PUMPS! -->
+    <div class="placeholder-img">
+      <div class="ph-icon">🌐</div>
+      <div class="ph-label">23.webp — POWERED BY COMMUNITY</div>
+      <div class="ph-sub">POWERED BY COMMUNITY. ACCELERATED BY MOMENTUM. — TURN 1-3% OF SUPPLY INTO $10M–$30M AT $1.00–$2.00</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SECTION 9 — POWERED BY COMMUNITY TITLE + BODY         -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section style="background:var(--black);padding:0 20px 40px;">
+  <div class="section-gold-title" style="padding-top:0;">Powered by Community. Accelerated by Momentum.</div>
+  <div class="body-text">
+    In today's crypto market, speed is everything—and that's where platforms like Pump.fun combined with strong, engaged communities create a powerful advantage.<br/><br/>
+    When a token launches into an active ecosystem—supported by coordinated exposure, social momentum, and real-time participation—it can gain traction far faster than traditional projects. Instead of waiting months for attention, the right setup can generate visibility, liquidity, and volume within hours.<br/><br/>
+    <strong>This is where strategic positioning matters most.</strong><br/>
+    At <strong>Iron Vault Token</strong>, we focus on aligning early-stage supply with high-impact launch environments. By leveraging community-driven demand and fast-moving platforms like Solana, even a small portion of total supply—such as <strong>1–3% (10,000,000 to 30,000,000 tokens)</strong>—can become highly valuable when momentum builds and price discovery accelerates.<br/>
+    As price evolves into higher ranges—such as the <strong>$1.00–$2.00 level</strong>—those early positions represent a completely different scale of opportunity.<br/><br/>
+    It's not just about launching a coin.<br/>
+    It's about <strong>creating the conditions for rapid attention, participation, and growth.</strong><br/>
+    <strong>Because in this market… momentum doesn't wait.</strong>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SECTION 10 — TOTAL SUPPLY AT LAUNCH IMAGE             -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section style="background:var(--black);padding:0 20px 48px;">
+  <div class="center-img-wrap">
+    <!-- REPLACE: C:\Users\Vulpi\legacy-vault\public\24.webp
+         TOTAL SUPPLY AT LAUNCH: 1,000,000,000
+         1% $250,000 | 2% $400,000 | 3% $500,000 SUPPLY AT LAUNCH
+         Iron Vault Token coin
+         SEE HOW CRYPTO COMMUNITIES & PUMP FUN CREATE QUICK TURNAROUNDS & OVERNIGHT COIN PUMPS! -->
+    <div class="placeholder-img">
+      <div class="ph-icon">🏆</div>
+      <div class="ph-label">24.webp — TOTAL SUPPLY AT LAUNCH</div>
+      <div class="ph-sub">TOTAL SUPPLY: 1,000,000,000 — 1% $250,000 | 2% $400,000 | 3% $500,000 SUPPLY AT LAUNCH</div>
+    </div>
+  </div>
+</section>
+
+<div class="sticky-spacer"></div>
+
+</body>
+</html>
