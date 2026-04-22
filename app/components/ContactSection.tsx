@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export default function ContactSection() {
   return (
     <section id="contact" style={{ background: '#fff', padding: '60px 40px' }}>
@@ -9,12 +11,8 @@ export default function ContactSection() {
           <a href="tel:8883682502" style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 22, fontWeight: 700, color: '#000', textDecoration: 'none', display: 'block', marginBottom: 24 }}>
             888-368-2502
           </a>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 16, padding: 20, background: '#f9f9f9', borderRadius: 8 }}>
-            <div style={{ fontSize: 52 }}>🏛️</div>
-            <div>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 18, fontWeight: 800, color: '#1B3A6B', lineHeight: 1 }}>COMMONWEALTH</div>
-              <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 14, fontWeight: 600, color: '#B8860B' }}>VENTURES LLC</div>
-            </div>
+          <div style={{ padding: 20, background: '#f9f9f9', borderRadius: 8 }}>
+            <Image src="/cwlogo.jpg" alt="Commonwealth Ventures LLC" width={300} height={100} style={{ width: '100%', height: 'auto', display: 'block' }} />
           </div>
           <div style={{ marginTop: 16, fontFamily: 'Montserrat, sans-serif', fontSize: 13, color: '#555' }}>
             16165 N. 83rd Avenue, Peoria, AZ 85382
