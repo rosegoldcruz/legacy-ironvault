@@ -2,7 +2,6 @@ import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
 import PaymentSection from './components/PaymentSection'
 import CountdownSection from './components/CountdownSection'
-import PresaleSection from './components/PresaleSection'
 import RagsToRiches from './components/RagsToRiches'
 import FundingSection from './components/FundingSection'
 import IVTSection from './components/IVTSection'
@@ -30,7 +29,6 @@ export default function Home() {
           </video>
         </div>
       </section>
-      <PresaleSection />
       <RagsToRiches />
       <FundingSection />
       <IVTSection />
