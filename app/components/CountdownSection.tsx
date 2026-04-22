@@ -34,18 +34,18 @@ export default function CountdownSection() {
   ]
 
   return (
-    <section style={{ background: '#000', padding: '50px 20px', textAlign: 'center' }}>
+    <section style={{ background: '#000', padding: '50px 16px', textAlign: 'center' }}>
       <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 15, fontWeight: 600, color: '#fff', marginBottom: 6 }}>
         Launch date on multiple exchanges November 1st 2026!
       </div>
       <div style={{ fontSize: 13, color: '#888', marginBottom: 24 }}>
         Get your private presale tokens today!
       </div>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, flexWrap: 'wrap' }}>
+      <div className="countdown-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, flexWrap: 'wrap', width: '100%' }}>
         {units.map((u, i) => (
           <>
-            <div key={u.label} style={{ textAlign: 'center' }}>
-              <div style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 72, color: '#fff', lineHeight: 1, textShadow: '0 0 20px rgba(212,175,55,0.3)' }}>
+            <div key={u.label} style={{ textAlign: 'center', minWidth: 60, maxWidth: 90, flex: '0 0 auto' }}>
+              <div className="countdown-number" style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(40px, 10vw, 72px)', color: '#fff', lineHeight: 1, textShadow: '0 0 20px rgba(212,175,55,0.3)' }}>
                 {u.val}
               </div>
               <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11, letterSpacing: 2, color: '#D4AF37', textTransform: 'uppercase' }}>
@@ -53,7 +53,7 @@ export default function CountdownSection() {
               </div>
             </div>
             {i < units.length - 1 && (
-              <div key={`sep-${i}`} style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 60, color: '#D4AF37', opacity: 0.4, lineHeight: 1, paddingBottom: 20 }}>:</div>
+              <div key={`sep-${i}`} className="countdown-sep" style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(32px, 8vw, 60px)', color: '#D4AF37', opacity: 0.4, lineHeight: 1, paddingBottom: 20, flex: '0 0 auto' }}>:</div>
             )}
           </>
         ))}

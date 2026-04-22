@@ -2,8 +2,8 @@ import Image from 'next/image'
 
 export default function RWASection() {
   return (
-    <section style={{ background: '#fff', padding: '60px 40px' }}>
-      <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 50, alignItems: 'center' }}>
+    <section style={{ background: '#fff', padding: '60px 20px' }}>
+      <div className="two-col-grid" style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 50, alignItems: 'center' }}>
         <div style={{ border: '2px solid #00AA44', borderRadius: 8, overflow: 'hidden' }}>
           <Image
             src="/7.webp"

@@ -32,15 +32,37 @@ export default function Navbar() {
 
   return (
     <>
-      <nav style={{ background: '#F5C518', padding: '10px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 999, borderBottom: '2px solid #B8860B', gap: 12 }}>
+      <nav style={{
+        background: '#F5C518',
+        padding: '10px 24px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        position: 'sticky',
+        top: 0,
+        zIndex: 999,
+        borderBottom: '2px solid #B8860B',
+        gap: 12,
+        width: '100%',
+        maxWidth: '100vw',
+        overflow: 'hidden',
+      }}>
         {/* Brand */}
-        <a href="/" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: 16, color: '#000', display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0, textDecoration: 'none' }}>
-          <Image src="/ivt-logo.png" alt="Iron Vault Token" width={52} height={52} style={{ borderRadius: '50%' }} />
+        <a href="/" style={{
+          fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: 16,
+          color: '#000', display: 'flex', alignItems: 'center', gap: 10,
+          flexShrink: 0, textDecoration: 'none', minHeight: 44,
+        }}>
+          <Image src="/ivt-logo.png" alt="Iron Vault Token" width={52} height={52}
+            style={{ borderRadius: '50%', flexShrink: 0 }} />
           <span className="nav-brand-text">The Iron Vault Token</span>
         </a>
 
         {/* Desktop nav links */}
-        <ul className="nav-links-desktop" style={{ display: 'flex', alignItems: 'center', gap: 2, listStyle: 'none', flexWrap: 'wrap' }}>
+        <ul className="nav-links-desktop" style={{
+          display: 'flex', alignItems: 'center', gap: 2,
+          listStyle: 'none', flexWrap: 'wrap',
+        }}>
           <li><a href="/" style={linkStyle(isHome)}>Home</a></li>
           <li><a href="/royalties" style={linkStyle(isRoyalties)}>Royalties</a></li>
           <li><a href="/contact" style={linkStyle(isContact)}>Contact</a></li>
@@ -70,24 +92,27 @@ export default function Navbar() {
           aria-label="Toggle menu"
           style={{
             display: 'none', background: 'none', border: 'none', cursor: 'pointer',
-            padding: '6px 8px', flexShrink: 0, minWidth: 44, minHeight: 44,
+            padding: 0, flexShrink: 0, width: 44, height: 44,
             alignItems: 'center', justifyContent: 'center',
           }}
         >
-          <span style={{ fontFamily: 'monospace', fontSize: 26, color: '#000', lineHeight: 1 }}>{open ? '✕' : '☰'}</span>
+          <span style={{ fontSize: 28, color: '#000', lineHeight: 1 }}>{open ? '✕' : '☰'}</span>
         </button>
       </nav>
 
-      {/* Mobile dropdown */}
+      {/* Mobile dropdown — full viewport width, fixed position */}
       {open && (
-        <div
-          className="nav-mobile-menu"
-          style={{
-            position: 'fixed', top: 74, left: 0, right: 0, zIndex: 998,
-            background: '#F5C518', borderBottom: '3px solid #B8860B',
-            display: 'flex', flexDirection: 'column',
-          }}
-        >
+        <div style={{
+          position: 'fixed',
+          top: 74,
+          left: 0,
+          width: '100vw',
+          zIndex: 9999,
+          background: '#F5C518',
+          borderBottom: '3px solid #B8860B',
+          display: 'flex',
+          flexDirection: 'column',
+        }}>
           {mobileLinks.map(link => (
             <a
               key={link.href}
@@ -97,9 +122,11 @@ export default function Navbar() {
                 fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 15,
                 color: link.active ? '#F5C518' : '#000',
                 background: link.active ? '#000' : 'transparent',
-                textDecoration: 'none', padding: '14px 24px',
+                textDecoration: 'none',
+                padding: '16px 20px',
                 borderBottom: '1px solid rgba(0,0,0,0.1)',
-                minHeight: 48, display: 'flex', alignItems: 'center',
+                width: '100%',
+                display: 'flex', alignItems: 'center', minHeight: 48,
               }}
             >
               {link.label}
@@ -111,7 +138,8 @@ export default function Navbar() {
             style={{
               fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: 15,
               color: '#F5C518', background: '#000', textDecoration: 'none',
-              padding: '14px 24px', minHeight: 48, display: 'flex', alignItems: 'center', gap: 8,
+              padding: '16px 20px', width: '100%',
+              display: 'flex', alignItems: 'center', gap: 8, minHeight: 48,
             }}
           >
             📞 888-368-2502

@@ -2,8 +2,8 @@ import Image from 'next/image'
 
 export default function IVTSection() {
   return (
-    <section style={{ background: '#fff', padding: '60px 40px' }}>
-      <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40, alignItems: 'center' }}>
+    <section style={{ background: '#fff', padding: '60px 20px' }}>
+      <div className="two-col-grid" style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40, alignItems: 'center' }}>
         <div>
           <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 24, fontWeight: 900, color: '#B8860B', textDecoration: 'underline', marginBottom: 8, fontStyle: 'italic' }}>
             Did you miss out on bitcoin?

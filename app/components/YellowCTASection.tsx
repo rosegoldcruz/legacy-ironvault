@@ -1,7 +1,7 @@
 export default function YellowCTASection() {
   return (
-    <section id="royalties" style={{ background: '#F5C518', padding: '60px 40px' }}>
-      <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: '280px 1fr 1fr 1fr', gap: 30, alignItems: 'start' }}>
+    <section id="royalties" style={{ background: '#F5C518', padding: '60px 20px' }}>
+      <div className="presale-grid" style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: '280px 1fr 1fr 1fr', gap: 30, alignItems: 'start' }}>
         <div>
           <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 22, fontWeight: 900, color: '#000', marginBottom: 16, lineHeight: 1.2 }}>
             Getting your pre sale tokens is simple

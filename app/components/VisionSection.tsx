@@ -2,8 +2,8 @@ import Image from 'next/image'
 
 export default function VisionSection() {
   return (
-    <section style={{ background: '#fff', padding: '60px 40px', borderTop: '1px solid #eee' }}>
-      <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 50, alignItems: 'center' }}>
+    <section style={{ background: '#fff', padding: '60px 20px', borderTop: '1px solid #eee' }}>
+      <div className="two-col-grid" style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 50, alignItems: 'center' }}>
         <div>
           <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 28, fontWeight: 900, color: '#000', marginBottom: 16, textAlign: 'center' }}>
             The Vision
