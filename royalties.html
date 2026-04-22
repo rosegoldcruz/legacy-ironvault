@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Royalties | Iron Vault Token</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--gold:#D4AF37;--gold-light:#F5D76E;--gold-dark:#B8860B;--black:#000000;--yellow:#F5C518;--white:#FFFFFF;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Open Sans',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden;}
+
+  .sticky-bar{position:fixed;bottom:0;left:0;right:0;z-index:1000;background:var(--yellow);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;border-top:2px solid var(--gold-dark);}
+  .sticky-bar-brand{display:flex;align-items:center;gap:8px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;color:var(--black);}
+  .sticky-bar-brand::before{content:'⚡';font-size:16px;}
+  .sticky-bar-nav{display:flex;align-items:center;gap:4px;flex-wrap:wrap;}
+  .sticky-bar-nav a{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;color:var(--black);text-decoration:none;padding:4px 8px;transition:opacity 0.2s;}
+  .sticky-bar-nav a:hover{opacity:0.7;}
+  .sticky-bar-nav a.active{background:var(--black);color:var(--yellow);border-radius:3px;padding:4px 10px;}
+
+  nav.main-nav{background:var(--yellow);padding:12px 40px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:999;border-bottom:2px solid var(--gold-dark);}
+  .nav-brand{font-family:'Montserrat',sans-serif;font-weight:800;font-size:16px;color:var(--black);display:flex;align-items:center;gap:10px;}
+  .nav-brand-icon{width:32px;height:32px;background:var(--black);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;}
+  .nav-links{display:flex;align-items:center;gap:4px;list-style:none;}
+  .nav-links a{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;color:var(--black);text-decoration:none;padding:6px 14px;transition:all 0.2s;border-radius:3px;}
+  .nav-links a:hover{background:rgba(0,0,0,0.1);}
+  .nav-links a.active{background:var(--black);color:var(--yellow);}
+  .nav-dropdown{position:relative;}
+  .nav-dropdown-menu{position:absolute;top:100%;right:0;background:var(--white);border:1px solid #ddd;border-radius:4px;min-width:160px;display:none;box-shadow:0 4px 12px rgba(0,0,0,0.15);}
+  .nav-dropdown:hover .nav-dropdown-menu{display:block;}
+  .nav-dropdown-menu a{display:block;padding:10px 16px;font-size:13px;color:var(--black);text-decoration:none;transition:background 0.2s;}
+  .nav-dropdown-menu a:hover{background:#f5f5f5;}
+
+  .section-title-gold{font-family:'Montserrat',sans-serif;font-size:28px;font-weight:800;color:var(--gold);text-align:center;padding:40px 20px 24px;font-style:italic;}
+  .center-img-wrap{max-width:660px;margin:0 auto;padding:0 20px 40px;}
+  .placeholder-img{width:100%;background:#1A1A1A;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 20px;text-align:center;border:1px solid #2A2A2A;border-radius:8px;min-height:280px;}
+  .placeholder-img .ph-icon{font-size:48px;margin-bottom:12px;}
+  .placeholder-img .ph-label{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:2px;color:#555;text-transform:uppercase;}
+  .placeholder-img .ph-sub{font-size:11px;color:#444;margin-top:6px;}
+
+  /* THREE PHASE CARDS - SIDE BY SIDE */
+  .three-phases-section{background:var(--black);padding:0 20px 40px;}
+  .three-phases-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .phase-card{background:#0D0D0D;border:1px solid var(--gold-dark);border-radius:8px;padding:28px;position:relative;overflow:hidden;}
+  .phase-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+  .phase-num{font-family:'Bebas Neue',sans-serif;font-size:48px;color:rgba(212,175,55,0.12);line-height:1;position:absolute;top:16px;right:20px;}
+  .phase-tag{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;}
+  .phase-title{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;color:var(--white);margin-bottom:12px;line-height:1.3;}
+  .phase-goal{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:var(--gold);margin-bottom:10px;line-height:1.5;}
+  .phase-kp-label{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;color:var(--white);margin-bottom:8px;letter-spacing:1px;}
+  .phase-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:14px;}
+  .phase-list li{font-size:12px;color:#AAA;line-height:1.5;display:flex;align-items:flex-start;gap:8px;}
+  .phase-list li::before{content:'•';color:var(--gold);flex-shrink:0;}
+  .phase-list.nested{margin-left:12px;}
+  .phase-list.nested li::before{content:'◦';color:var(--gold-dark);}
+  .phase-purpose-label{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;color:var(--white);margin-bottom:6px;letter-spacing:1px;}
+  .phase-purpose{font-size:12px;color:var(--gold);line-height:1.5;font-style:italic;}
+  .phase-divider{height:1px;background:rgba(212,175,55,0.2);margin:14px 0;}
+
+  .roadmap-header{background:var(--black);padding:20px 20px 32px;text-align:center;}
+  .roadmap-title{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:800;color:var(--gold);line-height:1.3;font-style:italic;}
+
+  .stablecoin-section{background:var(--black);padding:40px 20px;}
+  .stablecoin-title{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:800;color:var(--gold);margin-bottom:24px;font-style:italic;text-align:center;}
+  .stablecoin-text{max-width:720px;margin:0 auto 28px;font-size:13px;color:#CCC;line-height:1.8;text-align:center;}
+  .stablecoin-quote{font-family:'Montserrat',sans-serif;font-size:14px;font-style:italic;color:var(--white);text-align:center;margin-top:12px;}
+  .stablecoin-quote cite{display:block;font-size:12px;color:var(--gold);margin-top:4px;font-style:normal;}
+
+  .form-section{background:var(--white);padding:60px 20px;}
+  .form-wrap{max-width:480px;margin:0 auto;}
+  .cw-logo-box{text-align:center;margin-bottom:32px;padding:24px;background:#f9f9f9;border-radius:8px;}
+  .cw-logo-name{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;color:#1B3A6B;line-height:1;}
+  .cw-logo-name span{color:#E07020;}
+  .cw-logo-sub{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;color:var(--gold-dark);margin-top:4px;}
+  .form-group{margin-bottom:16px;}
+  .form-label{display:block;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;color:#333;margin-bottom:6px;}
+  .form-label .req{color:red;}
+  .form-input{width:100%;border:1px solid #DDD;border-radius:4px;padding:12px 14px;font-size:14px;color:#333;outline:none;transition:border-color 0.2s;font-family:'Open Sans',sans-serif;}
+  .form-input:focus{border-color:#666;}
+  .form-input::placeholder{color:#AAA;}
+  .form-email-wrap{position:relative;}
+  .form-email-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:14px;color:#AAA;}
+  .form-input.has-icon{padding-left:36px;}
+  .form-checkbox{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;}
+  .form-checkbox input[type="checkbox"]{margin-top:3px;flex-shrink:0;width:16px;height:16px;cursor:pointer;}
+  .form-checkbox label{font-size:11px;color:#555;line-height:1.6;cursor:pointer;}
+  .form-checkbox label strong{color:#333;}
+  .form-submit{width:100%;background:#22C55E;border:none;border-radius:4px;padding:16px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;color:var(--white);cursor:pointer;transition:opacity 0.2s;margin-top:4px;margin-bottom:12px;}
+  .form-submit:hover{opacity:0.9;}
+  .form-links{text-align:center;font-size:12px;}
+  .form-links a{color:#3B82F6;text-decoration:none;}
+  .form-links span{color:#999;margin:0 6px;}
+
+  .sticky-spacer{height:56px;}
+
+  @media(max-width:900px){
+    .three-phases-grid{grid-template-columns:1fr;}
+    nav.main-nav{padding:12px 16px;}
+    .nav-links{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- STICKY BOTTOM BAR -->
+<div class="sticky-bar">
+  <div class="sticky-bar-brand">The Iron Vault Token 888-368-2502</div>
+  <nav class="sticky-bar-nav">
+    <a href="index.html">Home</a>
+    <a href="royalties.html">Royalties</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="#" class="active">Referral Program</a>
+    <a href="#">Privacy Policy/ Terms</a>
+    <a href="#">Vip/Partner Pump</a>
+  </nav>
+</div>
+
+<!-- MAIN NAV -->
+<nav class="main-nav">
+  <div class="nav-brand">
+    <div class="nav-brand-icon">⚡</div>
+    The Iron Vault Token
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="royalties.html" class="active">Royalties</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="#">Referral Program</a></li>
+    <li class="nav-dropdown">
+      <a href="#">VIP/Partner Pump ▾</a>
+      <div class="nav-dropdown-menu"><a href="#">Privacy Policy/ Terms</a></div>
+    </li>
+  </ul>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SECTION 1 — EARN ROYALTIES IMAGE                      -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section style="background:var(--black);padding:40px 20px 0;">
+  <div class="section-title-gold" style="padding-top:0;">Earn Royalties with the Iron Vault Token</div>
+  <div class="center-img-wrap">
+    <!-- REPLACE: royalties/1.webp
+         Earn Royalties From Transaction Fees — vault with gold coins spilling, 1% 2% 3% labels
+         + MAKE MONEY FROM EVERY TRANSACTION text at bottom of same image -->
+    <div class="placeholder-img">
+      <div class="ph-icon">🏛️</div>
+      <div class="ph-label">IMAGE 1 — EARN ROYALTIES</div>
+      <div class="ph-sub">Vault + gold coins — 1% 2% 3% — MAKE MONEY FROM EVERY TRANSACTION</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SECTION 2 — 3/6/3 VIDEO                               -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section style="background:var(--black);padding:0 20px 40px;">
+  <div class="center-img-wrap" style="padding-bottom:0;">
+    <!-- REPLACE: royalties video file (363.mp4 or similar)
+         6% Transaction Fee breakdown — 3% to Company / 3% to Royalties — ROYALTY OFFER
+         Use: <video autoPlay muted loop playsInline width="100%" style="border-radius:8px;">
+                <source src="/royalties/363.mp4" type="video/mp4"/>
+              </video> -->
+    <div class="placeholder-img" style="min-height:200px;">
+      <div class="ph-icon">▶️</div>
+      <div class="ph-label">VIDEO — 3/6/3 ROYALTY BREAKDOWN</div>
+      <div class="ph-sub">6% Transaction Fee — 3% to Company / 3% to Royalties — ROYALTY OFFER</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SECTION 3 — THREE PHASE CARDS (3 COLUMNS SIDE BY SIDE) -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section class="three-phases-section">
+  <div class="section-title-gold" style="padding-top:0;">Three step process to unlock Stabe Coin</div>
+  <div class="three-phases-grid">
+
+    <div class="phase-card">
+      <div class="phase-num">1</div>
+      <div class="phase-tag">Phase 1</div>
+      <div class="phase-title">Community Token Launch</div>
+      <div class="phase-goal">Goal: Build the founding community and distribute the initial Iron Vault Tokens.</div>
+      <div class="phase-kp-label">Key Points</div>
+      <ul class="phase-list">
+        <li>Presale token price: <strong style="color:var(--white);">$0.001</strong></li>
+        <li>Community target: <strong style="color:var(--white);">10,000 early members</strong></li>
+        <li>Tokens distributed to founding holders</li>
+        <li>Establish liquidity and market presence</li>
+      </ul>
+      <div class="phase-divider"></div>
+      <div class="phase-purpose-label">Purpose</div>
+      <div class="phase-purpose">Build the foundation of the Iron Vault ecosystem through early adoption and community ownership.</div>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-num">2</div>
+      <div class="phase-tag">Phase 2</div>
+      <div class="phase-title">Royalty Ecosystem + Asset Acquisition</div>
+      <div class="phase-goal">Goal: Create revenue through token activity and acquire commercial assets.</div>
+      <div class="phase-kp-label">Key Points</div>
+      <ul class="phase-list">
+        <li>Transaction activity generates ecosystem revenue</li>
+        <li>Optional royalty positions allow participation in transaction fees</li>
+        <li>Funds used to acquire commercial real estate assets</li>
+      </ul>
+      <div class="phase-kp-label" style="margin-top:6px;">Examples of assets may include:</div>
+      <ul class="phase-list nested">
+        <li>Shopping centers</li>
+        <li>Gas stations</li>
+        <li>Franchise locations</li>
+        <li>Commercial properties</li>
+      </ul>
+      <div class="phase-divider"></div>
+      <div class="phase-purpose-label">Purpose</div>
+      <div class="phase-purpose">Create real-world asset backing and long-term ecosystem strength.</div>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-num">3</div>
+      <div class="phase-tag">Phase 3</div>
+      <div class="phase-title">Stablecoin Launch</div>
+      <div class="phase-goal">Goal: Launch a stablecoin backed by commercial real estate assets.</div>
+      <div class="phase-kp-label">Key Points</div>
+      <ul class="phase-list">
+        <li>Stablecoin supported by acquired assets</li>
+        <li>Early Iron Vault participants maintain ecosystem participation</li>
+        <li>Royalty participants maintain equivalent participation level</li>
+      </ul>
+      <div class="phase-divider"></div>
+      <div class="phase-purpose-label">Purpose</div>
+      <div class="phase-purpose">Create a <strong style="color:var(--white);">high-volume digital currency ecosystem</strong> capable of generating ongoing transaction activity.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SECTION 4 — IRON VAULT 3-PHASE ECOSYSTEM IMAGE        -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section class="roadmap-header">
+  <div class="roadmap-title">Building the Foundation → Creating Revenue →<br/>Launching the Stablecoin Economy</div>
+</section>
+<section style="background:var(--black);padding:0 20px 40px;">
+  <div class="center-img-wrap">
+    <!-- REPLACE: royalties/2.webp
+         Iron Vault 3-Phase Ecosystem infographic
+         Shield + 3 circles: 1 Community Token Launch → 2 $62,500,000 Revenue Raised → 3 Stablecoin Launch -->
+    <div class="placeholder-img">
+      <div class="ph-icon">🔄</div>
+      <div class="ph-label">IMAGE 2 — 3-PHASE ECOSYSTEM INFOGRAPHIC</div>
+      <div class="ph-sub">Shield → Community Token Launch → $62.5M Revenue → Stablecoin Launch</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SECTION 5 — ROYALTY PAYOUT EXAMPLE IMAGE              -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section class="stablecoin-section">
+  <div class="stablecoin-title">Check out what you could make from Stablecoin</div>
+  <div class="stablecoin-text">
+    5 year maximum timeline to achieve the stable coin launch. Upon Launch whatever participation level you have done with the Iron Vault Token you will get automatically with our stable coin launch. This Coin will be backed by all commercial assets and be valued at $1.00. So even if you only participated $250.00 were talking about a return within 5 years at that point of $250,000 for a $250.00 investment! There is no way you can lose if you are willing to hold for the 5 years.
+    <br/><br/>
+    The greatest wealth transfer in history will belong to the people who had the courage to get in early.
+    <div class="stablecoin-quote">
+      "All overnight success takes about 10 years."
+      <cite>Quote by Jeff Bezos</cite>
+    </div>
+  </div>
+  <div class="center-img-wrap">
+    <!-- REPLACE: royalties/3.webp
+         EXAMPLE OF ROYALTY PAYOUT — IF OUR STABLECOIN ACHIEVES $1,000,000,000 PER DAY
+         2% POSITION $10,000 = $10,000 PER DAY | 1% POSITION $2,000 = $2,000 PER DAY
+         EARN PASSIVE INCOME IF YOU HOLD A POSITION -->
+    <div class="placeholder-img">
+      <div class="ph-icon">💎</div>
+      <div class="ph-label">IMAGE 3 — ROYALTY PAYOUT EXAMPLE</div>
+      <div class="ph-sub">$1B/day Stablecoin — 2% = $10,000/day | 1% = $2,000/day</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SECTION 6 — PAYMENT METHODS IMAGE                     -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section style="background:var(--black);padding:20px 20px 40px;">
+  <div class="center-img-wrap">
+    <!-- REPLACE: royalties/4.webp
+         IRON VAULT TOKEN — WE ONLY ACCEPT THE FOLLOWING FORMS OF PAYMENT
+         FOR THE SAFETY OF OUR CUSTOMERS AND OUR PROTECTION
+         Cash App / Venmo / Zelle / Crypto (Bitcoin & Other Crypto) / Cashier's Check
+         SECURE • SAFE • TRANSPARENT • TRUSTED -->
+    <div class="placeholder-img">
+      <div class="ph-icon">💳</div>
+      <div class="ph-label">IMAGE 4 — PAYMENT METHODS</div>
+      <div class="ph-sub">Cash App / Venmo / Zelle / Crypto / Cashier's Check — Secure Safe Transparent Trusted</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SECTION 7 — FUNDING OPTIONS IMAGE                     -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section style="background:var(--black);padding:0 20px 40px;">
+  <div class="center-img-wrap">
+    <!-- REPLACE: royalties/5.webp
+         IRON VAULT TOKEN shield
+         FUNDING OPTIONS MAY BE AVAILABLE O.A.C. -->
+    <div class="placeholder-img">
+      <div class="ph-icon">🏦</div>
+      <div class="ph-label">IMAGE 5 — FUNDING OPTIONS</div>
+      <div class="ph-sub">Iron Vault Token — Funding Options May Be Available O.A.C.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SECTION 8 — CONTACT FORM                              -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section class="form-section">
+  <div class="form-wrap">
+    <div class="cw-logo-box">
+      <!-- REPLACE: actual Commonwealth Ventures LLC logo (3.webp from main assets or royalties/cw-logo.webp) -->
+      <div class="cw-logo-name"><span>CW</span> COMMONWEALTH</div>
+      <div class="cw-logo-sub">VENTURES LLC</div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">First Name</label>
+      <input type="text" class="form-input" placeholder="First Name"/>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Last Name</label>
+      <input type="text" class="form-input" placeholder="Last Name"/>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Phone <span class="req">*</span></label>
+      <input type="tel" class="form-input" placeholder="Phone"/>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Email <span class="req">*</span></label>
+      <div class="form-email-wrap">
+        <span class="form-email-icon">✉</span>
+        <input type="email" class="form-input has-icon" placeholder="Email"/>
+      </div>
+    </div>
+    <div class="form-checkbox">
+      <input type="checkbox" id="c1"/>
+      <label for="c1">By checking this box, I consent to receive non-marketing text messages from <strong>[Common Wealth Ventures LLC]</strong> about <strong>all services and promotions offered by Common Wealth Ventures LLC</strong>. Message frequency varies; message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.</label>
+    </div>
+    <div class="form-checkbox">
+      <input type="checkbox" id="c2"/>
+      <label for="c2">By checking this box, I consent to receive marketing and promotional messages including special offers, discounts, new product updates among others. From <strong>[Common Wealth Ventures LLC]</strong> at the phone number provided. Frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.</label>
+    </div>
+    <button class="form-submit" type="button">Button</button>
+    <div class="form-links">
+      <a href="#">Privacy Policy</a><span>|</span><a href="#">Terms of Service</a>
+    </div>
+  </div>
+</section>
+
+<div class="sticky-spacer"></div>
+
+</body>
+</html>

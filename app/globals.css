@@ -47,3 +47,10 @@ body {
 
 /* Sticky spacer */
 .sticky-spacer { height: 56px; }
+
+/* Three phase grid responsive */
+@media (max-width: 900px) {
+  .three-phases-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
