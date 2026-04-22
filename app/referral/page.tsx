@@ -1,5 +1,4 @@
 import Navbar from '../components/Navbar'
-import StickyBar from '../components/StickyBar'
 import ReferralHero from '../components/referral/ReferralHero'
 import ReferralCommissions from '../components/referral/ReferralCommissions'
 import ReferralReward from '../components/referral/ReferralReward'
@@ -26,8 +25,6 @@ export default function ReferralPage() {
         <ReferralForm />
       </section>
       <ReferralBottomCopy />
-      <div className="sticky-spacer" />
-      <StickyBar />
     </>
   )
 }

@@ -11,7 +11,6 @@ import VisionSection from './components/VisionSection'
 import SolanaSection from './components/SolanaSection'
 import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
-import StickyBar from './components/StickyBar'
 
 export default function Home() {
   return (
@@ -38,8 +37,6 @@ export default function Home() {
       <SolanaSection />
       <ContactSection />
       <Footer />
-      <div className="sticky-spacer" />
-      <StickyBar />
     </>
   )
 }

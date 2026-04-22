@@ -14,16 +14,20 @@ export default function Navbar() {
       textDecoration: 'none', padding: '6px 14px', borderRadius: 3,
       background: active ? '#000' : 'transparent',
       color: active ? '#F5C518' : '#000',
+      whiteSpace: 'nowrap',
     }
   }
 
   return (
-    <nav style={{ background: '#F5C518', padding: '12px 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 999, borderBottom: '2px solid #B8860B' }}>
-      <div style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: 16, color: '#000', display: 'flex', alignItems: 'center', gap: 10 }}>
+    <nav style={{ background: '#F5C518', padding: '10px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 999, borderBottom: '2px solid #B8860B', gap: 12, flexWrap: 'wrap' }}>
+      {/* Brand */}
+      <div style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: 16, color: '#000', display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}>
         <Image src="/ivt-logo.png" alt="Iron Vault Token" width={32} height={32} style={{ borderRadius: '50%' }} />
         The Iron Vault Token
       </div>
-      <ul style={{ display: 'flex', alignItems: 'center', gap: 4, listStyle: 'none' }}>
+
+      {/* Nav links */}
+      <ul style={{ display: 'flex', alignItems: 'center', gap: 2, listStyle: 'none', flexWrap: 'wrap' }}>
         <li><a href="/" style={linkStyle(isHome)}>Home</a></li>
         <li><a href="/royalties" style={linkStyle(isRoyalties)}>Royalties</a></li>
         <li><a href="/#contact" style={linkStyle(false)}>Contact</a></li>
@@ -35,6 +39,20 @@ export default function Navbar() {
           </div>
         </li>
       </ul>
+
+      {/* Call Now */}
+      <a
+        href="tel:8883682502"
+        style={{
+          display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0,
+          background: '#000', color: '#F5C518',
+          fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: 13,
+          padding: '8px 16px', borderRadius: 4, textDecoration: 'none',
+          whiteSpace: 'nowrap',
+        }}
+      >
+        📞 888-368-2502
+      </a>
     </nav>
   )
 }

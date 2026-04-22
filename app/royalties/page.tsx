@@ -1,5 +1,4 @@
 import Navbar from '../components/Navbar'
-import StickyBar from '../components/StickyBar'
 import RoyaltiesHero from '../components/royalties/RoyaltiesHero'
 import RoyaltiesVideo from '../components/royalties/RoyaltiesVideo'
 import ThreePhaseCards from '../components/royalties/ThreePhaseCards'
@@ -23,8 +22,6 @@ export default function RoyaltiesPage() {
       <StablecoinSection />
       <RoyaltiesPayment />
       <RoyaltiesForm />
-      <div className="sticky-spacer" />
-      <StickyBar />
     </>
   )
 }
