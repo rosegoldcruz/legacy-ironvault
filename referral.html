@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Referral Program | Iron Vault Token</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--gold:#D4AF37;--gold-dark:#B8860B;--black:#000000;--yellow:#F5C518;--white:#FFFFFF;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Open Sans',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden;}
+
+  /* NAV */
+  .sticky-bar{position:fixed;bottom:0;left:0;right:0;z-index:1000;background:var(--yellow);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;border-top:2px solid var(--gold-dark);}
+  .sticky-bar-brand{display:flex;align-items:center;gap:8px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;color:var(--black);}
+  .sticky-bar-brand::before{content:'⚡';font-size:16px;}
+  .sticky-bar-nav{display:flex;align-items:center;gap:4px;flex-wrap:wrap;}
+  .sticky-bar-nav a{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;color:var(--black);text-decoration:none;padding:4px 8px;}
+  .sticky-bar-nav a.active{background:var(--black);color:var(--yellow);border-radius:3px;padding:4px 10px;}
+
+  nav.main-nav{background:var(--yellow);padding:12px 40px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:999;border-bottom:2px solid var(--gold-dark);}
+  .nav-brand{font-family:'Montserrat',sans-serif;font-weight:800;font-size:16px;color:var(--black);display:flex;align-items:center;gap:10px;}
+  .nav-brand-icon{width:32px;height:32px;background:var(--black);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;}
+  .nav-links{display:flex;align-items:center;gap:4px;list-style:none;}
+  .nav-links a{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;color:var(--black);text-decoration:none;padding:6px 14px;transition:all 0.2s;border-radius:3px;}
+  .nav-links a:hover{background:rgba(0,0,0,0.1);}
+  .nav-links a.active{background:var(--black);color:var(--yellow);}
+  .nav-dropdown{position:relative;}
+  .nav-dropdown-menu{position:absolute;top:100%;right:0;background:var(--white);border:1px solid #ddd;border-radius:4px;min-width:160px;display:none;box-shadow:0 4px 12px rgba(0,0,0,0.15);}
+  .nav-dropdown:hover .nav-dropdown-menu{display:block;}
+  .nav-dropdown-menu a{display:block;padding:10px 16px;font-size:13px;color:var(--black);text-decoration:none;}
+  .nav-dropdown-menu a:hover{background:#f5f5f5;}
+
+  /* SHARED */
+  .center-img-wrap{max-width:660px;margin:0 auto;padding:0 20px;}
+  .placeholder-img{width:100%;background:#1A1A1A;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 20px;text-align:center;border:1px solid #2A2A2A;border-radius:8px;min-height:280px;}
+  .placeholder-img .ph-icon{font-size:48px;margin-bottom:12px;}
+  .placeholder-img .ph-label{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:2px;color:#555;text-transform:uppercase;}
+  .placeholder-img .ph-sub{font-size:11px;color:#444;margin-top:6px;}
+
+  /* PAGE TITLE */
+  .page-title{
+    background:var(--black);padding:40px 20px 32px;text-align:center;
+  }
+  .page-title h1{
+    font-family:'Montserrat',sans-serif;font-size:32px;font-weight:900;
+    color:var(--gold);
+  }
+
+  /* TEMPLATE SECTION */
+  .template-section{background:var(--black);padding:40px 20px;}
+  .template-title{
+    font-family:'Montserrat',sans-serif;font-size:26px;font-weight:800;
+    color:var(--gold);text-align:center;font-style:italic;
+    margin-bottom:24px;
+  }
+  .template-body{
+    max-width:660px;margin:0 auto 32px;
+    font-size:13px;color:#CCC;line-height:1.8;text-align:center;
+  }
+
+  /* REFERRAL FORM */
+  .referral-form-wrap{
+    max-width:560px;margin:0 auto;
+    background:#111;border:1px solid #2A2A2A;
+    border-radius:8px;padding:32px;
+  }
+  .referral-form-intro{
+    font-size:13px;color:var(--gold);font-style:italic;
+    text-align:center;margin-bottom:24px;line-height:1.6;
+    font-family:'Montserrat',sans-serif;font-weight:600;
+  }
+  .form-group{margin-bottom:14px;}
+  .form-label{
+    display:block;font-family:'Montserrat',sans-serif;
+    font-size:11px;font-weight:600;color:#888;
+    margin-bottom:6px;letter-spacing:1px;text-transform:uppercase;
+  }
+  .form-label .req{color:red;}
+  .form-input{
+    width:100%;background:#1A1A1A;border:1px solid #2A2A2A;
+    border-radius:4px;padding:12px 14px;
+    font-size:14px;color:var(--white);
+    outline:none;transition:border-color 0.2s;
+    font-family:'Open Sans',sans-serif;
+  }
+  .form-input:focus{border-color:var(--gold-dark);}
+  .form-input::placeholder{color:#444;}
+  .form-email-wrap{position:relative;}
+  .form-email-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:14px;color:#444;}
+  .form-input.has-icon{padding-left:36px;}
+  .form-submit{
+    width:100%;background:#22C55E;border:none;border-radius:4px;
+    padding:16px;font-family:'Montserrat',sans-serif;font-weight:700;
+    font-size:15px;color:var(--white);cursor:pointer;
+    transition:opacity 0.2s;margin-top:8px;
+  }
+  .form-submit:hover{opacity:0.9;}
+
+  /* BOTTOM COPY */
+  .bottom-copy{
+    background:var(--yellow);padding:32px 20px;
+    max-width:760px;margin:0 auto;
+    font-size:13px;color:var(--black);line-height:1.8;
+    text-align:center;
+  }
+
+  .sticky-spacer{height:56px;}
+
+  @media(max-width:768px){
+    nav.main-nav{padding:12px 16px;}
+    .nav-links{display:none;}
+    .sticky-bar{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<!-- STICKY BOTTOM BAR -->
+<div class="sticky-bar">
+  <div class="sticky-bar-brand">The Iron Vault Token 888-368-2502</div>
+  <nav class="sticky-bar-nav">
+    <a href="index.html">Home</a>
+    <a href="royalties.html">Royalties</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="referral.html" class="active">Referral Program</a>
+    <a href="#">Privacy Policy/ Terms</a>
+    <a href="#">Vip/Partner Pump</a>
+  </nav>
+</div>
+
+<!-- MAIN NAV -->
+<nav class="main-nav">
+  <div class="nav-brand">
+    <div class="nav-brand-icon">⚡</div>
+    The Iron Vault Token
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="royalties.html">Royalties</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="referral.html" class="active">Referral Program</a></li>
+    <li class="nav-dropdown">
+      <a href="#">VIP/Partner Pump ▾</a>
+      <div class="nav-dropdown-menu"><a href="#">Privacy Policy/ Terms</a></div>
+    </li>
+  </ul>
+</nav>
+
+<!-- PAGE TITLE -->
+<div class="page-title">
+  <h1>CWV Referral Program</h1>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SECTION 1 — 10% COMMISSION IMAGE                      -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section style="background:var(--black);padding:0 20px 32px;">
+  <div class="center-img-wrap">
+    <!-- REPLACE: referral/1.webp
+         Commonwealth Ventures + Iron Vault Token logos
+         10% — handshake with money raining
+         "Earn 10% Commission On All Referral Purchases" -->
+    <div class="placeholder-img">
+      <div class="ph-icon">🤝</div>
+      <div class="ph-label">IMAGE 1 — 10% COMMISSION</div>
+      <div class="ph-sub">CW + IVT logos — 10% — handshake with money — Earn 10% Commission On All Referral Purchases</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SECTION 2 — REFERRAL COMMISSIONS BREAKDOWN IMAGE      -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section style="background:var(--black);padding:0 20px 32px;">
+  <div class="center-img-wrap">
+    <!-- REPLACE: referral/2.webp
+         IRON VAULT TOKEN — REFERRAL COMMISSIONS
+         Shield with people photos and commission amounts:
+         Friends $5,500 | Clients $8,200 | Associates $3,750
+         Partners $6,400 | Family $2,150 | $6,400 Commission -->
+    <div class="placeholder-img">
+      <div class="ph-icon">💰</div>
+      <div class="ph-label">IMAGE 2 — REFERRAL COMMISSIONS BREAKDOWN</div>
+      <div class="ph-sub">Friends $5,500 | Clients $8,200 | Associates $3,750 | Partners $6,400 | Family $2,150</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SECTION 3 — HELPING OTHERS IS REWARDING IMAGE         -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section style="background:var(--black);padding:0 20px 40px;">
+  <div class="center-img-wrap">
+    <!-- REPLACE: referral/3.webp
+         IRON VAULT TOKEN
+         HELPING OTHERS IS FINANCIALLY REWARDING & MENTALLY REWARDING
+         IRON VAULT TOKEN — SECURE • SAFE • TRANSPARENT • TRUSTED -->
+    <div class="placeholder-img">
+      <div class="ph-icon">🌟</div>
+      <div class="ph-label">IMAGE 3 — HELPING OTHERS IS REWARDING</div>
+      <div class="ph-sub">HELPING OTHERS IS FINANCIALLY REWARDING & MENTALLY REWARDING — SECURE SAFE TRANSPARENT TRUSTED</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SECTION 4 — TEMPLATE + REFERRAL FORM                  -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section class="template-section">
+  <div class="template-title">Template for sharing Iron Vault Token with others!</div>
+  <div class="template-body">
+    A lot of people say they wish they had gotten into Bitcoin early...<br/><br/>
+    Right now there's a project in its early stages called Iron Vault Token, and the vision behind it is pretty powerful. The goal is to build a strong community first, then create revenue through token transaction volume and commercial asset acquisition, eventually launching a digital currency backed by real-world holdings.<br/><br/>
+    Early community members are getting access to pre-launch tokens and optional royalty positions tied to transaction activity. The project hasn't launched publicly yet, which is exactly when a lot of people look for opportunities.<br/><br/>
+    If you're someone who likes learning about emerging crypto projects before they become mainstream, it might be worth taking a look. If you want more info, message me and I'll connect you with the team.
+  </div>
+
+  <div class="referral-form-wrap">
+    <div class="referral-form-intro">
+      Submit your referral below to receive your 10% commissions on anything they spend!
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Your Name</label>
+      <input type="text" class="form-input" placeholder="Your first and last name"/>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Your Email Address</label>
+      <div class="form-email-wrap">
+        <span class="form-email-icon">✉</span>
+        <input type="email" class="form-input has-icon" placeholder="your@email.com"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Referral Full Name</label>
+      <input type="text" class="form-input" placeholder="Referral full name"/>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Referral Phone <span class="req">*</span></label>
+      <input type="tel" class="form-input" placeholder="Referral phone number"/>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Referral Email Address <span class="req">*</span></label>
+      <div class="form-email-wrap">
+        <span class="form-email-icon">✉</span>
+        <input type="email" class="form-input has-icon" placeholder="Referral email address"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Referral Occupation (Company)</label>
+      <input type="text" class="form-input" placeholder="Company"/>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Solution to Referral</label>
+      <input type="text" class="form-input" placeholder="Solution to referral"/>
+    </div>
+    <button class="form-submit" type="button">Submit</button>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- BOTTOM COPY                                            -->
+<!-- ══════════════════════════════════════════════════════ -->
+<section style="background:var(--yellow);padding:40px 20px;">
+  <div style="max-width:760px;margin:0 auto;font-size:13px;color:var(--black);line-height:1.8;text-align:center;font-family:'Open Sans',sans-serif;">
+    Anyone you refer to our company We will pay you a 10% commission in the form of a cashiers check or wire within 30 hours of us receiving the funds! Most folks they missed out on Bitcoin as many others. Get them into this amazing opportunity at hand and share in plenty of commissions just as other have! Anything they ever spend with our company even 10 years down the line we will pay you 10%
+  </div>
+</section>
+
+<div class="sticky-spacer"></div>
+
+</body>
+</html>
