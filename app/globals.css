@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold: #D4AF37;
+  --gold-light: #F5D76E;
+  --gold-dark: #B8860B;
+  --black: #000000;
+  --near-black: #0A0A0A;
+  --dark: #111111;
+  --yellow: #F5C518;
+  --yellow-bg: #F5C518;
+  --white: #FFFFFF;
+  --gray: #888888;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #000000;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Nav dropdown */
+.nav-dropdown:hover .nav-dropdown-menu {
+  display: block;
+}
+
+/* Sol bars */
+.sol-bar {
+  border-radius: 2px;
+}
+.sol-1 { background: #9945FF; }
+.sol-2 { background: #14F195; }
+.sol-3 { background: #00A8E8; }
+
+/* Sticky spacer */
+.sticky-spacer { height: 56px; }
