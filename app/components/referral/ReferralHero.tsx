@@ -1,25 +1,45 @@
 import Image from 'next/image'
+import VideoPlayer from '../VideoPlayer'
+
+const referralCards = [
+  {
+    src: '/16.webp',
+    alt: 'Iron Vault Token Referral Commissions — Friends $5,500, Clients $8,200, Associates $3,750, Partners $6,400, Family $2,150',
+  },
+  {
+    src: '/17.webp',
+    alt: 'Helping Others Is Financially Rewarding and Mentally Rewarding — Iron Vault Token',
+  },
+  {
+    src: '/15.webp',
+    alt: 'Commonwealth Ventures and Iron Vault Token — Earn 10% Commission On All Referral Purchases',
+  },
+]
 
 export default function ReferralHero() {
   return (
-    <>
-      <div style={{ background: '#000', padding: '40px 20px 32px', textAlign: 'center' }}>
-        <h1 style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 32, fontWeight: 900, color: '#D4AF37' }}>
-          CWV Referral Program
-        </h1>
-      </div>
-      <section style={{ background: '#000', padding: '0 20px 32px' }}>
-        <div style={{ maxWidth: 660, margin: '0 auto' }}>
-          <Image
-            src="/15.webp"
-            alt="Earn 10% Commission On All Referral Purchases — Commonwealth Ventures + Iron Vault Token"
-            width={660}
-            height={500}
-            style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 8 }}
-            priority
-          />
+    <section className="referral-hero-section">
+      <h1 className="referral-hero-title">
+        CWV Referral Program
+      </h1>
+      <div className="referral-hero-grid">
+        <div className="referral-video-wrap">
+          <VideoPlayer src="/referral.mp4" />
         </div>
-      </section>
-    </>
+        <div className="referral-card-stack">
+          {referralCards.map((card, index) => (
+            <Image
+              key={card.src}
+              src={card.src}
+              alt={card.alt}
+              width={660}
+              height={500}
+              priority={index === 0}
+              className="referral-card-image"
+            />
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }

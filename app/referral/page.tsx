@@ -1,7 +1,5 @@
 import Navbar from '../components/Navbar'
 import ReferralHero from '../components/referral/ReferralHero'
-import ReferralCommissions from '../components/referral/ReferralCommissions'
-import ReferralReward from '../components/referral/ReferralReward'
 import ReferralTemplate from '../components/referral/ReferralTemplate'
 import ReferralForm from '../components/referral/ReferralForm'
 import ReferralBottomCopy from '../components/referral/ReferralBottomCopy'
@@ -15,10 +13,8 @@ export default function ReferralPage() {
     <>
       <Navbar />
       <ReferralHero />
-      <ReferralCommissions />
-      <ReferralReward />
-      <section style={{ background: '#000', padding: '40px 20px' }}>
-        <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 26, fontWeight: 800, color: '#D4AF37', textAlign: 'center', fontStyle: 'italic', marginBottom: 24 }}>
+      <section className="referral-template-section">
+        <div className="referral-template-heading">
           Template for sharing Iron Vault Token with others!
         </div>
         <ReferralTemplate />
