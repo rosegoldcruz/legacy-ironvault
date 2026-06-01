@@ -24,7 +24,7 @@ export default function Home() {
       {/* Asset 3 — promo video */}
       <section style={{ background: '#000', padding: '40px 20px', textAlign: 'center' }}>
         <div style={{ maxWidth: 720, margin: '0 auto', borderRadius: 8, overflow: 'hidden' }}>
-          <VideoPlayer src="/3.mp4" />
+          <VideoPlayer src="/The presale.mp4" />
         </div>
       </section>
       <RagsToRiches />
