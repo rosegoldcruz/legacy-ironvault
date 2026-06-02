@@ -2,7 +2,7 @@ export default function ThreePhaseCards() {
   return (
     <section style={{ background: '#000', padding: '0 20px 40px' }}>
       <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 28, fontWeight: 800, color: '#D4AF37', textAlign: 'center', paddingBottom: 24, fontStyle: 'italic' }}>
-        Three step process to unlock Stabe Coin
+        Three step process to unlock Stablecoin
       </div>
 
       <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}
