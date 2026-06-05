@@ -7,7 +7,7 @@ export default function YellowCTASection() {
             Getting your pre sale tokens is simple
           </div>
           <a href="/optin" style={{ display: 'block', background: '#000', color: '#fff', fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 14, padding: 20, borderRadius: 4, textAlign: 'center', lineHeight: 1.4, textDecoration: 'none' }}>
-            Opt in to recieve info on getting your tokens today!
+            Opt in to receive info on getting your tokens today!
           </a>
         </div>
         {[

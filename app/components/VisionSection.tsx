@@ -32,7 +32,7 @@ export default function VisionSection() {
               textAlign: 'center', textDecoration: 'none', marginTop: 16,
             }}
           >
-            Opt in to recieve info on getting your tokens today!
+            Opt in to receive info on getting your tokens today!
           </a>
         </div>
         <div style={{ border: '2px solid #00AA44', borderRadius: 8, overflow: 'hidden' }}>

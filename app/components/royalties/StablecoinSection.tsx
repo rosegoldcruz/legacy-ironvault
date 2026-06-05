@@ -7,7 +7,7 @@ export default function StablecoinSection() {
         Check out what you could make from Stablecoin
       </div>
       <div style={{ maxWidth: 720, margin: '0 auto 28px', fontSize: 13, color: '#CCC', lineHeight: 1.8, textAlign: 'center' }}>
-        5 year maximum timeline to achieve the stable coin launch. Upon Launch whatever participation level you have done with the Iron Vault Token you will get automatically with our stable coin launch. This Coin will be backed by all commercial assets and be valued at $1.00. So even if you only participated $250.00 were talking about a return within 5 years at that point of $250,000 for a $250.00 investment! There is no way you can lose if you are willing to hold for the 5 years.
+        5 year maximum timeline to achieve the stable coin launch. Upon Launch whatever participation level you have done with the Iron Vault Token you will get automatically with our stable coin launch. This Coin will be backed by all commercial assets and be valued at $1.00. So even if you only participated $250.00 we&apos;re talking about a return within 5 years at that point of $250,000 for a $250.00 investment! There is no way you can lose if you are willing to hold for the 5 years.
         <br /><br />
         The greatest wealth transfer in history will belong to the people who had the courage to get in early.
         <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 14, fontStyle: 'italic', color: '#fff', textAlign: 'center', marginTop: 12 }}>
