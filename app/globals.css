@@ -73,6 +73,52 @@ select {
 /* ── Sticky spacer ── */
 .sticky-spacer { height: 56px; }
 
+/* ── Payments ── */
+.payment-section {
+  background: #000;
+  padding: 60px 20px;
+}
+
+.payment-showcase {
+  width: min(100%, 1680px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(180px, 420px) minmax(360px, 720px) minmax(180px, 420px);
+  align-items: center;
+  justify-content: center;
+  gap: clamp(18px, 3vw, 46px);
+}
+
+.payment-main,
+.payment-side {
+  width: 100%;
+}
+
+.payment-main {
+  justify-self: center;
+}
+
+.payment-side-left {
+  justify-self: end;
+}
+
+.payment-side-right {
+  justify-self: start;
+}
+
+.payment-main-image,
+.payment-side-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.payment-side-image {
+  max-height: 420px;
+  object-fit: contain;
+}
+
 /* ── Referral page ── */
 .referral-hero-section {
   background: #000;
@@ -236,6 +282,32 @@ select {
    MOBILE BREAKPOINT — 768px
    ═══════════════════════════════ */
 @media (max-width: 768px) {
+
+  .payment-section {
+    padding: 44px 16px;
+  }
+
+  .payment-showcase {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 720px;
+  }
+
+  .payment-main {
+    order: 1;
+  }
+
+  .payment-side-left {
+    order: 2;
+  }
+
+  .payment-side-right {
+    order: 3;
+  }
+
+  .payment-side-image {
+    max-height: none;
+  }
 
   .referral-thankyou-section {
     min-height: 0;
