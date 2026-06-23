@@ -16,7 +16,7 @@ export default function IVTSection() {
           </p>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 6, marginTop: 12 }}>
             {[
-              'Facilitate participation within the Common Wealth Ventures platform',
+              'Facilitate participation within the IVT MEDIA GROUP platform',
               'Support community growth and ecosystem adoption',
               'Enable royalty-based participation tied to platform trading activity',
               'Provide access to future ecosystem developments and digital financial products',

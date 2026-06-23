@@ -28,8 +28,8 @@ export default function ContactForm() {
         {/* CW Logo */}
         <div style={{ textAlign: 'center', marginBottom: 36, padding: 28, background: '#f9f9f9', borderRadius: 8 }}>
           <Image
-            src="/cwlogo.jpg"
-            alt="Commonwealth Ventures LLC"
+            src="/IVT/ivt-black.png"
+            alt="IVT MEDIA GROUP"
             width={300}
             height={100}
             style={{ maxWidth: '100%', height: 'auto', margin: '0 auto', display: 'block' }}
@@ -67,7 +67,7 @@ export default function ContactForm() {
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 12 }}>
           <input type="checkbox" id="c1" style={{ marginTop: 3, flexShrink: 0, width: 16, height: 16, cursor: 'pointer' }} />
           <label htmlFor="c1" style={{ fontSize: 11, color: '#555', lineHeight: 1.6, cursor: 'pointer' }}>
-            By checking this box, I consent to receive non-marketing text messages from <strong>[Common Wealth Ventures LLC]</strong> about <strong>all services and promotions offered by Common Wealth Ventures LLC</strong>. Message frequency varies; message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.
+            By checking this box, I consent to receive non-marketing text messages from <strong>[IVT MEDIA GROUP]</strong> about <strong>all services and promotions offered by IVT MEDIA GROUP</strong>. Message frequency varies; message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.
           </label>
         </div>
 
@@ -75,7 +75,7 @@ export default function ContactForm() {
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 12 }}>
           <input type="checkbox" id="c2" style={{ marginTop: 3, flexShrink: 0, width: 16, height: 16, cursor: 'pointer' }} />
           <label htmlFor="c2" style={{ fontSize: 11, color: '#555', lineHeight: 1.6, cursor: 'pointer' }}>
-            By checking this box, I consent to receive marketing and promotional messages including special offers, discounts, new product updates among others. From <strong>[Common Wealth Ventures LLC]</strong> at the phone number provided. Frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.
+            By checking this box, I consent to receive marketing and promotional messages including special offers, discounts, new product updates among others. From <strong>[IVT MEDIA GROUP]</strong> at the phone number provided. Frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.
           </label>
         </div>
 

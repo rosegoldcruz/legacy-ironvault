@@ -9,10 +9,10 @@ export default function VisionSection() {
             The Vision
           </div>
           <p style={{ fontSize: 13, color: '#333', lineHeight: 1.7, marginBottom: 12, textAlign: 'center' }}>
-            Common Wealth Ventures believes the next evolution of finance will combine.
+            IVT MEDIA GROUP believes the next evolution of finance will combine.
           </p>
           <p style={{ fontSize: 13, color: '#333', lineHeight: 1.7, marginBottom: 12, textAlign: 'center' }}>
-            The Common Wealth Token is designed to be the first step toward building a platform where:
+            The Iron Vault Token is designed to be the first step toward building a platform where:
           </p>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 6, textAlign: 'center', marginBottom: 20 }}>
             {[

@@ -12,7 +12,7 @@ const referralCards = [
   },
   {
     src: '/15.webp',
-    alt: 'Commonwealth Ventures and Iron Vault Token — Earn 10% Commission On All Referral Purchases',
+    alt: 'IVT MEDIA GROUP and Iron Vault Token — Earn 10% Commission On All Referral Purchases',
   },
 ]
 
@@ -20,7 +20,7 @@ export default function ReferralHero() {
   return (
     <section className="referral-hero-section">
       <h1 className="referral-hero-title">
-        CWV Referral Program
+        IVT MEDIA GROUP Referral Program
       </h1>
       <div className="referral-hero-grid">
         <div className="referral-video-wrap">

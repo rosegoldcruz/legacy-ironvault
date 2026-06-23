@@ -3,7 +3,7 @@ export default function Footer() {
     <footer style={{ background: '#000', padding: '32px 20px', borderTop: '1px solid #1A1A1A' }}>
       <div className="footer-inner" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 20 }}>
         <div style={{ fontFamily: 'Open Sans, sans-serif', fontSize: 12, color: '#555' }}>
-          Copyright Common Wealth Ventures LLC 2026. All rights reserved
+          Copyright IVT MEDIA GROUP 2026. All rights reserved
         </div>
         <div className="footer-social" style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
           {[

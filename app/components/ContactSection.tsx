@@ -12,7 +12,7 @@ export default function ContactSection() {
             888-368-2502
           </a>
           <div style={{ padding: 20, background: '#f9f9f9', borderRadius: 8 }}>
-            <Image src="/cwlogo.jpg" alt="Commonwealth Ventures LLC" width={300} height={100} style={{ width: '100%', height: 'auto', display: 'block' }} />
+            <Image src="/IVT/ivt-black.png" alt="IVT MEDIA GROUP" width={300} height={100} style={{ width: '100%', height: 'auto', display: 'block' }} />
           </div>
           <div style={{ marginTop: 16, fontFamily: 'Montserrat, sans-serif', fontSize: 13, color: '#555' }}>
             16165 N. 83rd Avenue, Peoria, AZ 85382
