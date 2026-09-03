@@ -14,13 +14,17 @@ export default function ContactSection() {
           <div style={{ padding: 20, background: '#f9f9f9', borderRadius: 8 }}>
             <Image src="/IVT/ivt-black.png" alt="IVT MEDIA GROUP" width={300} height={100} style={{ width: '100%', height: 'auto', display: 'block' }} />
           </div>
-          <div style={{ marginTop: 16, fontFamily: 'Montserrat, sans-serif', fontSize: 13, color: '#555' }}>
-            16165 N. 83rd Avenue, Peoria, AZ 85382
+          <div style={{ marginTop: 16, fontFamily: 'Montserrat, sans-serif', fontSize: 13, color: '#555', lineHeight: 1.6 }}>
+            5830 East 2nd Street
+            <br />
+            7000
+            <br />
+            Casper, WY 82609
           </div>
         </div>
         <div style={{ borderRadius: 8, overflow: 'hidden', border: '1px solid #ddd', width: '100%' }}>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3324.5!2d-112.2374!3d33.6445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b67b4b4b4b4b4%3A0x0!2s16165+N+83rd+Ave%2C+Peoria%2C+AZ+85382!5e0!3m2!1sen!2sus!4v1"
+            src="https://www.google.com/maps?q=5830+East+2nd+Street+7000+Casper+WY+82609&output=embed"
             width="100%"
             height="220"
             style={{ border: 0, display: 'block', width: '100%', maxWidth: '100%', height: 220 }}
