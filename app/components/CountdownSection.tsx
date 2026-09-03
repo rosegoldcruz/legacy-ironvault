@@ -9,6 +9,9 @@ function pad(n: number, len = 2) {
 export default function CountdownSection() {
   const [time, setTime] = useState({ d: 0, h: 0, m: 0, s: 0 })
   const [isLive, setIsLive] = useState(false)
+  const [copied, setCopied] = useState(false)
+  const contractAddress = 'DTe8U4RnErPN1CKiJ5HcyZPEAGXMg6j6ueindYuowfjV'
+  const contractAddressShort = `${contractAddress.slice(0, 6)}...${contractAddress.slice(-6)}`
 
   useEffect(() => {
     const target = new Date('2026-10-01T00:00:00')
@@ -36,6 +39,16 @@ export default function CountdownSection() {
     { val: pad(time.m), label: 'minutes' },
     { val: pad(time.s), label: 'seconds' },
   ]
+
+  async function copyAddress() {
+    try {
+      await navigator.clipboard.writeText(contractAddress)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 1500)
+    } catch {
+      setCopied(false)
+    }
+  }
 
   return (
     <section style={{ background: 'radial-gradient(circle at top, #151528 0%, #050509 45%, #000 100%)', padding: '56px 16px', textAlign: 'center' }}>
@@ -73,11 +86,21 @@ export default function CountdownSection() {
           <span style={{ color: '#fff', fontFamily: 'Montserrat, sans-serif', fontWeight: 700, letterSpacing: 0.4 }}>Network: Solana</span>
         </div>
         <div style={{ color: '#d5d5e6', fontSize: 12, marginBottom: 8 }}>Contract Address</div>
-        <div style={{ color: '#fff', fontFamily: 'monospace', fontSize: 'clamp(12px, 2.5vw, 15px)', wordBreak: 'break-all', marginBottom: 14 }}>
-          DTe8U4RnErPN1CKiJ5HcyZPEAGXMg6j6ueindYuowfjV
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, marginBottom: 14, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(153,102,255,0.35)', borderRadius: 999, padding: '8px 12px' }}>
+          <span style={{ color: '#fff', fontFamily: 'monospace', fontSize: 'clamp(12px, 2.5vw, 15px)', letterSpacing: 0.6 }}>
+            {contractAddressShort}
+          </span>
+          <button
+            type="button"
+            aria-label="Copy contract address"
+            onClick={copyAddress}
+            style={{ display: 'grid', placeItems: 'center', width: 28, height: 28, borderRadius: 999, border: 'none', background: copied ? '#14f195' : '#9f7cff', color: copied ? '#050509' : '#fff', cursor: 'pointer' }}
+          >
+            {copied ? '✓' : '⧉'}
+          </button>
         </div>
         <a
-          href="https://solscan.io/account/DTe8U4RnErPN1CKiJ5HcyZPEAGXMg6j6ueindYuowfjV"
+          href={`https://solscan.io/account/${contractAddress}`}
           target="_blank"
           rel="noopener noreferrer"
           style={{ display: 'inline-block', background: 'linear-gradient(90deg, #14f195 0%, #9945ff 100%)', color: '#050509', fontWeight: 700, fontSize: 13, padding: '10px 18px', borderRadius: 999, textDecoration: 'none', boxShadow: '0 8px 24px rgba(20,241,149,0.24)' }}
