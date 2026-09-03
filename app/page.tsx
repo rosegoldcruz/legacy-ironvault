@@ -18,8 +18,8 @@ export default function Home() {
     <>
       <Navbar />
       <HeroSection />
-      <PaymentSection />
       <CountdownSection />
+      <PaymentSection />
 
       {/* Asset 3 — promo video */}
       <section style={{ background: '#000', padding: '40px 20px', textAlign: 'center' }}>

@@ -53,14 +53,20 @@ export default function CountdownSection() {
   return (
     <section style={{ background: 'radial-gradient(circle at top, #151528 0%, #050509 45%, #000 100%)', padding: '56px 16px', textAlign: 'center' }}>
       <div style={{ maxWidth: 920, margin: '0 auto', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(153,102,255,0.35)', borderRadius: 20, padding: '30px 20px', boxShadow: '0 0 50px rgba(140,82,255,0.18), inset 0 0 25px rgba(153,102,255,0.1)' }}>
-        <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 14, fontWeight: 700, letterSpacing: 1.2, color: '#B18CFF', textTransform: 'uppercase', marginBottom: 10 }}>
-          {isLive ? 'Live Since October 1st, 2026' : 'Launch Countdown • October 1st, 2026'}
+        <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 14, fontWeight: 700, letterSpacing: 1.2, color: '#B18CFF', textTransform: 'uppercase', marginBottom: 6 }}>
+          Iron Vault Public Launch
         </div>
-        <div style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(34px, 6vw, 54px)', lineHeight: 1, color: '#fff', marginBottom: 8, textShadow: '0 0 22px rgba(20,241,149,0.35)' }}>
-          {isLive ? 'Iron Vault Is Live' : 'Iron Vault Goes Live In'}
+        <div style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(38px, 6vw, 56px)', lineHeight: 1, color: '#fff', marginBottom: 14, textShadow: '0 0 22px rgba(20,241,149,0.35)' }}>
+          October 1, 2026
         </div>
-        <div style={{ fontSize: 13, color: '#b9b9c8', marginBottom: 24 }}>
-          {isLive ? 'Tracking time since launch on Solana.' : 'Get your private presale tokens before launch.'}
+        <div style={{ fontSize: 14, color: '#d7d7e9', marginBottom: 4 }}>
+          Private presale is open now.
+        </div>
+        <div style={{ fontSize: 14, color: '#d7d7e9', marginBottom: 22 }}>
+          Get IVT before the public launch.
+        </div>
+        <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 13, fontWeight: 700, letterSpacing: 1, color: '#B18CFF', textTransform: 'uppercase', marginBottom: 8 }}>
+          {isLive ? 'Public Launch Since' : 'Public Launch In'}
         </div>
 
         <div className="countdown-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, flexWrap: 'wrap', width: '100%', marginBottom: 26 }}>
@@ -80,12 +86,23 @@ export default function CountdownSection() {
             </div>
           ))}
         </div>
-
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, marginBottom: 12 }}>
-          <Image src="/solana-logo.svg" alt="Solana logo" width={30} height={30} />
-          <span style={{ color: '#fff', fontFamily: 'Montserrat, sans-serif', fontWeight: 700, letterSpacing: 0.4 }}>Network: Solana</span>
+        <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 11, letterSpacing: 1.5, color: '#14f195', textTransform: 'uppercase', marginBottom: 24 }}>
+          Days · Hours · Minutes · Seconds
         </div>
-        <div style={{ color: '#d5d5e6', fontSize: 12, marginBottom: 8 }}>Contract Address</div>
+
+        <div style={{ width: '100%', maxWidth: 560, margin: '0 auto 22px', borderTop: '1px solid rgba(153,102,255,0.35)' }} />
+
+        <div style={{ fontFamily: 'Montserrat, sans-serif', fontSize: 14, fontWeight: 700, letterSpacing: 1.2, color: '#B18CFF', textTransform: 'uppercase', marginBottom: 14 }}>
+          IVT Token Details
+        </div>
+        <div style={{ color: '#d5d5e6', fontSize: 12, marginBottom: 6, textTransform: 'uppercase', letterSpacing: 1 }}>
+          Network
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, marginBottom: 14 }}>
+          <Image src="/solana-logo.svg" alt="Solana logo" width={30} height={30} />
+          <span style={{ color: '#fff', fontFamily: 'Montserrat, sans-serif', fontWeight: 700, letterSpacing: 0.4 }}>Solana</span>
+        </div>
+        <div style={{ color: '#d5d5e6', fontSize: 12, marginBottom: 8, textTransform: 'uppercase', letterSpacing: 1 }}>Contract Address</div>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, marginBottom: 14, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(153,102,255,0.35)', borderRadius: 999, padding: '8px 12px' }}>
           <span style={{ color: '#fff', fontFamily: 'monospace', fontSize: 'clamp(12px, 2.5vw, 15px)', letterSpacing: 0.6 }}>
             {contractAddressShort}
@@ -105,7 +122,7 @@ export default function CountdownSection() {
           rel="noopener noreferrer"
           style={{ display: 'inline-block', background: 'linear-gradient(90deg, #14f195 0%, #9945ff 100%)', color: '#050509', fontWeight: 700, fontSize: 13, padding: '10px 18px', borderRadius: 999, textDecoration: 'none', boxShadow: '0 8px 24px rgba(20,241,149,0.24)' }}
         >
-          View on Solscan
+          View Contract on Solscan
         </a>
       </div>
     </section>
