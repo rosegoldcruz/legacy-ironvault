@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Bebas_Neue, Montserrat, Open_Sans } from 'next/font/google'
 import './globals.css'
+import { PhantomProviders } from './components/PhantomProviders'
 
 const bebasNeue = Bebas_Neue({
   weight: '400',
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${bebasNeue.variable} ${montserrat.variable} ${openSans.variable}`}>
-      <body>{children}</body>
+      <body><PhantomProviders>{children}</PhantomProviders></body>
     </html>
   )
 }
