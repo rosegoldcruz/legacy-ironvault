@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@phantom/browser-sdk": "2.0.2",
+    "@phantom/react-sdk": "2.0.2",
+    "@solana/web3.js": "1.98.4",
     "next": "14.2.35",
     "react": "^18",
     "react-dom": "^18"
